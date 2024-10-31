@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
+            // IconButton(onPressed: () {}, icon: Icon(Icons.close)),
             SizedBox(height: 30),
             Container(
               alignment: Alignment.centerLeft, // Align to the left
@@ -100,30 +101,7 @@ class _HomePageState extends State<HomePage> {
                             },
                           ),
                         ),
-                        // Greeting and name
-                        // Column(
-                        //   crossAxisAlignment: CrossAxisAlignment.start,
-                        //   children: [
-                        //     Text(
-                        //       'Hello,',
-                        //       style: TextStyle(
-                        //         fontWeight: FontWeight.bold,
-                        //         fontSize: 18,
-                        //         color:
-                        //             Colors.white, // Text color for readability
-                        //       ),
-                        //     ),
-                        //     Text(
-                        //       'Peter B. Parker',
-                        //       style: TextStyle(
-                        //         fontWeight: FontWeight.bold,
-                        //         fontSize: 24,
-                        //         color:
-                        //             Colors.white, // Text color for readability
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
+
                         // Logo
                         Image.asset(
                           'lib/assets/white-logo.png',
@@ -132,28 +110,41 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 60),
-                  //Greeting and name
-                  Text(
-                    'قصتك لأن كل حكاية تستاهل تُروى... بطريقتك',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w100,
-                      color: Colors.white, // Text color for readability
-                    ),
+                  SizedBox(height: 20),
+
+                  Column(
+                    children: [
+                      Text(
+                        'مرحبًا بك',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'كاتبنا الصغير: لالا',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
+
                   SizedBox(height: 20),
                   // Card with catch phrase
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Card(
-                      color: Colors
-                          .transparent, // Make card background transparent
+                      color: Color.fromARGB(
+                          0, 214, 41, 41), // Make card background transparent
                       elevation: 0,
                       child: Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 32, 0, 77),
+                          color: Color.fromARGB(155, 108, 77, 212),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Row(
@@ -167,9 +158,8 @@ class _HomePageState extends State<HomePage> {
                             // Catch phrase
                             Expanded(
                               child: Text(
-                                '?????',
+                                'كلام مالو معنى حقيقي و بس موجود عشان اشوف',
                                 style: TextStyle(
-                                  //fontWeight: FontWeight.w500,
                                   fontSize: 22,
                                   color: const Color.fromARGB(198, 255, 255,
                                       255), // Adjust color as needed
@@ -190,14 +180,6 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '???',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
                         TextButton(
                           onPressed: () {
                             Navigator.push(context,
@@ -208,8 +190,16 @@ class _HomePageState extends State<HomePage> {
                             }));
                           },
                           child: Text(
-                            'See all',
+                            'المزيد؟ مافي مزيد هنا',
                             style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        Text(
+                          'الفئات؟',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -219,31 +209,27 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(height: 25),
 
                   // Horizontal ListView for services
-                  Container(
-                    height: 80,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        ServicesCard(
-                          serviceName: 'قصة حوارية',
-                          iconImagePath: 'lib/assets/book.png',
-                          pageTitle: '',
-                          buttonText: 'View now!',
-                        ),
-                        ServicesCard(
-                          serviceName: 'قصة شعرية؟',
-                          iconImagePath: 'lib/assets/fairy-tale.png',
-                          pageTitle: '',
-                          buttonText: 'file a report',
-                        ),
-                        ServicesCard(
-                          serviceName: 'قصة وصفية',
-                          iconImagePath: 'lib/assets/bedtime.png',
-                          pageTitle: '',
-                          buttonText: 'review history',
-                        ),
-                      ],
-                    ),
+                  Column(
+                    children: [
+                      ServicesCard(
+                        serviceName: 'قصة حوارية',
+                        iconImagePath: 'lib/assets/book.png',
+                        pageTitle: '',
+                        buttonText: 'View now!', //? whats this for?
+                      ),
+                      ServicesCard(
+                        serviceName: 'قصة شعرية؟',
+                        iconImagePath: 'lib/assets/fairy-tale.png',
+                        pageTitle: '',
+                        buttonText: 'file a report',
+                      ),
+                      ServicesCard(
+                        serviceName: 'قصة وصفية',
+                        iconImagePath: 'lib/assets/bedtime.png',
+                        pageTitle: '',
+                        buttonText: 'review history',
+                      ),
+                    ],
                   ),
 
                   SizedBox(height: 40),
@@ -254,14 +240,6 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Recent stories',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
                         TextButton(
                           onPressed: () {
                             Navigator.push(context,
@@ -272,8 +250,16 @@ class _HomePageState extends State<HomePage> {
                             }));
                           },
                           child: Text(
-                            'See all',
+                            'المزيد',
                             style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        Text(
+                          'ريسنت ستوريز',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -300,7 +286,13 @@ class _HomePageState extends State<HomePage> {
                           eventImagePath: 'lib/assets/simpathy.jpg',
                           eventOrganizer: 'some kid watching',
                         ),
-                        // Add more EventCard widgets as needed
+
+                        // Add more
+                        Expanded(
+                          child: Image.asset(
+                            'lib/assets/plus.png', // Allow the image to fill available width
+                          ),
+                        ),
                       ],
                     ),
                   ),

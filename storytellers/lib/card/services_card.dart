@@ -1,4 +1,5 @@
 import 'package:storytellers/pages/history_page.dart';
+import 'package:storytellers/pages/home_page.dart';
 import 'package:storytellers/pages/services_page.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,6 @@ class ServicesCard extends StatelessWidget {
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 20), // space between each card
-      
         child: Card(
           child: Container(
             padding: EdgeInsets.all(20),
@@ -38,23 +38,18 @@ class ServicesCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Image.asset(
-                  iconImagePath,
-                  height: 40,
-                ),
-                SizedBox(width: 10),
                 Text(
                   serviceName,
                   style: TextStyle(fontWeight: FontWeight.w600),
                 ),
-                // TextButton(
-                //   onPressed: () {
-                //     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //       return pageName;
-                //     }));
-                //   },
-                //   child: Text(buttonText),
-                // ),
+                SizedBox(
+                  width: 20,
+                ),
+                Image.asset(
+                  iconImagePath,
+                  //height: 40,
+                  fit: BoxFit.cover,
+                ),
               ],
             ),
           ),

@@ -3,6 +3,7 @@
 import 'package:storytellers/card/event_card.dart';
 import 'package:storytellers/card/services_card.dart';
 import 'package:flutter/material.dart';
+import 'package:storytellers/pages/services_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -131,17 +132,17 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 70),
-                  // Greeting and name
-                  // Text(
-                  //   'قصتك لأن كل حكاية تستاهل تُروى... بطريقتك',
-                  //   style: TextStyle(
-                  //     fontSize: 18,
-                  //     color:
-                  //         Colors.white, // Text color for readability
-                  //   ),
-                  // ),
-
+                  SizedBox(height: 60),
+                  //Greeting and name
+                  Text(
+                    'قصتك لأن كل حكاية تستاهل تُروى... بطريقتك',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w100,
+                      color: Colors.white, // Text color for readability
+                    ),
+                  ),
+                  SizedBox(height: 20),
                   // Card with catch phrase
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -197,11 +198,18 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                           ),
                         ),
-                        Text(
-                          'See all',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return services_page(
+                                title: '',
+                              );
+                            }));
+                          },
+                          child: Text(
+                            'See all',
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                       ],
@@ -217,21 +225,21 @@ class _HomePageState extends State<HomePage> {
                       scrollDirection: Axis.horizontal,
                       children: [
                         ServicesCard(
-                          serviceName: 'View availability',
-                          iconImagePath: 'lib/assets/users-class.png',
-                          pageTitle: 'View Availability',
+                          serviceName: 'قصة حوارية',
+                          iconImagePath: 'lib/assets/book.png',
+                          pageTitle: '',
                           buttonText: 'View now!',
                         ),
                         ServicesCard(
-                          serviceName: 'Report an issue',
-                          iconImagePath: 'lib/assets/file-edit.png',
-                          pageTitle: 'Reports',
+                          serviceName: 'قصة شعرية؟',
+                          iconImagePath: 'lib/assets/fairy-tale.png',
+                          pageTitle: '',
                           buttonText: 'file a report',
                         ),
                         ServicesCard(
-                          serviceName: 'History',
-                          iconImagePath: 'lib/assets/time-past.png',
-                          pageTitle: 'History',
+                          serviceName: 'قصة وصفية',
+                          iconImagePath: 'lib/assets/bedtime.png',
+                          pageTitle: '',
                           buttonText: 'review history',
                         ),
                       ],
@@ -254,11 +262,18 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                           ),
                         ),
-                        Text(
-                          'See all',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return services_page(
+                                title: '',
+                              );
+                            }));
+                          },
+                          child: Text(
+                            'See all',
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                       ],

@@ -15,211 +15,289 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 234, 226, 248),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.emergency), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: ''),
-      ]),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          // Make the whole body scrollable
-          child: Column(children: [
-            SizedBox(height: 15),
-            // app bar
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            SizedBox(height: 30),
+            Container(
+              alignment: Alignment.centerLeft, // Align to the left
+              padding:
+                  EdgeInsets.all(16.0), // Optional: Add padding for spacing
+              child: Column(
+                crossAxisAlignment:
+                    CrossAxisAlignment.start, // Align children to the left
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Hello,',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                      Text(
-                        'Peter B. Parker',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24),
-                      )
-                    ],
-                  ),
-
-                  // logo
-                  Image.asset(
-                    'lib/assets/purple-logo.png',
-                    height: 45,
+                  Icon(Icons.menu_rounded,
+                      color: Color.fromARGB(255, 121, 89, 178)),
+                  Text(
+                    'More',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Color.fromARGB(255, 121, 89, 178),
+                    ),
                   ),
                 ],
               ),
             ),
-
-            SizedBox(height: 25),
-
-            // card --> catch phrase
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Card(
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 210, 224, 251),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(
+            SizedBox(height: 20),
+            ListTile(
+              leading: Icon(Icons.account_circle,
+                  color: Color.fromARGB(255, 121, 89, 178)),
+              title: Text('Profile'),
+              onTap: () {
+                // Action for Settings
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings,
+                  color: Color.fromARGB(255, 121, 89, 178)),
+              title: Text('Settings'),
+              onTap: () {
+                // Action for Settings
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.contact_support_sharp,
+                  color: Color.fromARGB(255, 121, 89, 178)),
+              title: Text('Contact us'),
+              onTap: () {
+                // Action for Settings
+              },
+            ),
+          ],
+        ),
+      ),
+      body: Stack(
+        children: [
+          // Background image
+          Image.asset(
+            'lib/assets/background.png', // Path to the background image
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          // Main content
+          SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: 15),
+                  // App bar with drawer icon
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // THE phrase
-                        Column(
+                        // Sidebar menu icon inside a Builder
+                        Builder(
+                          builder: (context) => IconButton(
+                            icon: Icon(Icons.menu, color: Colors.white),
+                            onPressed: () {
+                              Scaffold.of(context)
+                                  .openDrawer(); // Opens the sidebar
+                            },
+                          ),
+                        ),
+                        // Greeting and name
+                        // Column(
+                        //   crossAxisAlignment: CrossAxisAlignment.start,
+                        //   children: [
+                        //     Text(
+                        //       'Hello,',
+                        //       style: TextStyle(
+                        //         fontWeight: FontWeight.bold,
+                        //         fontSize: 18,
+                        //         color:
+                        //             Colors.white, // Text color for readability
+                        //       ),
+                        //     ),
+                        //     Text(
+                        //       'Peter B. Parker',
+                        //       style: TextStyle(
+                        //         fontWeight: FontWeight.bold,
+                        //         fontSize: 24,
+                        //         color:
+                        //             Colors.white, // Text color for readability
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
+                        // Logo
+                        Image.asset(
+                          'lib/assets/white-logo.png',
+                          height: 45,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 70),
+                  // Greeting and name
+                  // Text(
+                  //   'قصتك لأن كل حكاية تستاهل تُروى... بطريقتك',
+                  //   style: TextStyle(
+                  //     fontSize: 18,
+                  //     color:
+                  //         Colors.white, // Text color for readability
+                  //   ),
+                  // ),
+
+                  // Card with catch phrase
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Card(
+                      color: Colors
+                          .transparent, // Make card background transparent
+                      elevation: 0,
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 32, 0, 77),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'قصتك لأن كل حكاية تستاهل تُروى... بطريقتك',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 22,
+                            // Optionally, add an image here if desired
+                            Image.asset(
+                              'lib/assets/Astronaut.png',
+                              height: 150,
+                            ),
+                            // Catch phrase
+                            Expanded(
+                              child: Text(
+                                '?????',
+                                style: TextStyle(
+                                  //fontWeight: FontWeight.w500,
+                                  fontSize: 22,
+                                  color: const Color.fromARGB(198, 255, 255,
+                                      255), // Adjust color as needed
+                                ),
                               ),
-                            )
+                            ),
                           ],
                         ),
-
-                        // picture
-                        // Image.asset(
-                        //   'lib/assets/college class-amico.png',
-                        //   height: 120,
-                        // ),
-                      ]),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 25),
-
-            // see all button/ line
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Services list',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      ),
                     ),
                   ),
-                  Text(
-                    'See all',
-                    style: TextStyle(
-                      fontSize: 14,
+
+                  SizedBox(height: 40),
+
+                  // Services list section
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '???',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          'See all',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
 
-            SizedBox(height: 25),
+                  SizedBox(height: 25),
 
-            // horizontal listview --> services
-            Container(
-              height: 80,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  ServicesCard(
-                    serviceName: 'View availability',
-                    iconImagePath: 'lib/assets/users-class.png',
-                    pageTitle: 'View Availability',
-                    buttonText: 'View now!',
-                  ),
-                  ServicesCard(
-                    serviceName: 'Report an issue',
-                    iconImagePath: 'lib/assets/file-edit.png',
-                    pageTitle: 'Reports',
-                    buttonText: 'file a report',
-                  ),
-                  ServicesCard(
-                    serviceName: 'History',
-                    iconImagePath: 'lib/assets/time-past.png',
-                    pageTitle: 'History',
-                    buttonText: 'review history',
-                  ),
-                ],
-              ),
-            ),
-
-            SizedBox(height: 25),
-
-            // see all button/ line
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Events',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                  // Horizontal ListView for services
+                  Container(
+                    height: 80,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        ServicesCard(
+                          serviceName: 'View availability',
+                          iconImagePath: 'lib/assets/users-class.png',
+                          pageTitle: 'View Availability',
+                          buttonText: 'View now!',
+                        ),
+                        ServicesCard(
+                          serviceName: 'Report an issue',
+                          iconImagePath: 'lib/assets/file-edit.png',
+                          pageTitle: 'Reports',
+                          buttonText: 'file a report',
+                        ),
+                        ServicesCard(
+                          serviceName: 'History',
+                          iconImagePath: 'lib/assets/time-past.png',
+                          pageTitle: 'History',
+                          buttonText: 'review history',
+                        ),
+                      ],
                     ),
                   ),
-                  Text(
-                    'See all',
-                    style: TextStyle(
-                      fontSize: 14,
+
+                  SizedBox(height: 40),
+
+                  // Events section
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Recent stories',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          'See all',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+
+                  SizedBox(height: 25),
+
+                  // Horizontal ListView for events
+                  Container(
+                    height: 200, // Set height for horizontal ListView
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        EventCard(
+                          eventImagePath: 'lib/assets/sleep.png',
+                          eventOrganizer: 'sleepy wolf',
+                        ),
+                        EventCard(
+                          eventImagePath: 'lib/assets/birdwatching.png',
+                          eventOrganizer: 'some kid watching',
+                        ),
+                        EventCard(
+                          eventImagePath: 'lib/assets/simpathy.jpg',
+                          eventOrganizer: 'some kid watching',
+                        ),
+                        // Add more EventCard widgets as needed
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 25),
+
+                  // Additional events section, if needed
                 ],
               ),
             ),
-
-            SizedBox(height: 25),
-
-            // Horizontal ListView for events
-            Container(
-              height: 200, // Set height for horizontal ListView
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  EventCard(
-                      eventImagePath: 'lib/assets/some-event.png',
-                      eventOrganizer: 'GDGUJ',
-                      eventDesc:
-                          'some workshop by the google developer group(s?)'),
-                  EventCard(
-                      eventImagePath: 'lib/assets/game-event.png',
-                      eventOrganizer: 'GDGUJ',
-                      eventDesc:
-                          'some workshop by the google developer group(s?)'),
-                  // Add more EventCard widgets as needed
-                ],
-              ),
-            ),
-
-            SizedBox(height: 25),
-
-            // Another section for events, if needed
-            Container(
-              height: 200, // Set height for horizontal ListView
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  EventCard(
-                      eventImagePath: 'lib/assets/some-event.png',
-                      eventOrganizer: 'GDGUJ',
-                      eventDesc:
-                          'some workshop by the google developer group(s?)'),
-                  EventCard(
-                      eventImagePath: 'lib/assets/game-event.png',
-                      eventOrganizer: 'GDGUJ',
-                      eventDesc:
-                          'some workshop by the google developer group(s?)'),
-                ],
-              ),
-            ),
-          ]),
-        ),
+          ),
+        ],
       ),
     );
   }

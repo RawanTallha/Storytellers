@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 class EventCard extends StatelessWidget {
   final eventImagePath;
   final String eventOrganizer;
-  final String eventDesc;
 
 // constructor to change icon and service in every card
   EventCard({
     required this.eventImagePath,
     required this.eventOrganizer,
-    required this.eventDesc,
   });
 
   @override
@@ -29,16 +27,17 @@ class EventCard extends StatelessWidget {
                   )),
             ),
 
-            SizedBox(height: 15),
-
             // event organization (bold)
-            Text(
-              eventOrganizer,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                eventOrganizer,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold, 
+                  fontSize: 16,
+                  color: const Color.fromARGB(255, 59, 18, 129)),
+              ),
             ),
-
-            // event description
-            //Text(eventDesc),
           ]),
         ),
       //),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class services_page extends StatelessWidget {
-  const services_page({Key? key, required this.title}) : super(key: key);
+class StoryPage extends StatelessWidget {
+  const StoryPage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override

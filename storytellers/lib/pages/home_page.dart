@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:storytellers/card/event_card.dart';
-import 'package:storytellers/card/services_card.dart';
+import 'package:storytellers/card/recent_story_card.dart';
+import 'package:storytellers/card/genre_card.dart';
 import 'package:flutter/material.dart';
-import 'package:storytellers/pages/services_page.dart';
+import 'package:storytellers/pages/recent_story_page.dart';
+import 'package:storytellers/pages/story_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -174,7 +175,7 @@ class _HomePageState extends State<HomePage> {
 
                   SizedBox(height: 40),
 
-                  // Services list section
+                  // generate your story list section
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
@@ -184,18 +185,18 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return services_page(
+                              return StoryPage(
                                 title: '',
                               );
                             }));
                           },
                           child: Text(
-                            'المزيد؟ مافي مزيد هنا',
+                            '',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
                         Text(
-                          'الفئات؟',
+                          'الفئات',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -208,26 +209,23 @@ class _HomePageState extends State<HomePage> {
 
                   SizedBox(height: 25),
 
-                  // Horizontal ListView for services
+                  // Horizontal ListView for genres
                   Column(
                     children: [
-                      ServicesCard(
+                      GenreCard(
                         serviceName: 'قصة حوارية',
                         iconImagePath: 'lib/assets/book.png',
                         pageTitle: '',
-                        buttonText: 'View now!', //? whats this for?
                       ),
-                      ServicesCard(
-                        serviceName: 'قصة شعرية؟',
+                      GenreCard(
+                        serviceName: 'قصة شعرية',
                         iconImagePath: 'lib/assets/fairy-tale.png',
                         pageTitle: '',
-                        buttonText: 'file a report',
                       ),
-                      ServicesCard(
+                      GenreCard(
                         serviceName: 'قصة وصفية',
                         iconImagePath: 'lib/assets/bedtime.png',
                         pageTitle: '',
-                        buttonText: 'review history',
                       ),
                     ],
                   ),
@@ -244,9 +242,7 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return services_page(
-                                title: '',
-                              );
+                              return RecentStoryPage();
                             }));
                           },
                           child: Text(
@@ -268,21 +264,21 @@ class _HomePageState extends State<HomePage> {
 
                   SizedBox(height: 25),
 
-                  // Horizontal ListView for events
-                  Container(
+                  // Horizontal ListView for story genres
+                  SizedBox(
                     height: 200, // Set height for horizontal ListView
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        EventCard(
+                        RecentStoryCard(
                           eventImagePath: 'lib/assets/sleep.png',
                           eventOrganizer: 'sleepy wolf',
                         ),
-                        EventCard(
+                        RecentStoryCard(
                           eventImagePath: 'lib/assets/birdwatching.png',
                           eventOrganizer: 'some kid watching',
                         ),
-                        EventCard(
+                        RecentStoryCard(
                           eventImagePath: 'lib/assets/simpathy.jpg',
                           eventOrganizer: 'some kid watching',
                         ),

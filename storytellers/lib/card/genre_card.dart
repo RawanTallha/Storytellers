@@ -1,24 +1,25 @@
+// ignore_for_file: unused_import, prefer_typing_uninitialized_variables, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, prefer_const_constructors, sort_child_properties_last
+
 import 'dart:ffi';
 
-import 'package:storytellers/pages/history_page.dart';
+import 'package:storytellers/pages/generate_story_page.dart';
+import 'package:storytellers/pages/recent_story_page.dart';
 import 'package:storytellers/pages/home_page.dart';
-import 'package:storytellers/pages/services_page.dart';
+import 'package:storytellers/pages/story_page.dart';
 import 'package:flutter/material.dart';
 
-class ServicesCard extends StatelessWidget {
+class GenreCard extends StatelessWidget {
   final iconImagePath;
   final String serviceName;
 // final pageName;
   final String pageTitle;
-  final String buttonText;
 
 // constructor to change icon and service in every card
-  ServicesCard({
+  GenreCard({
     required this.iconImagePath,
     required this.serviceName,
     //required this.pageName,
     required this.pageTitle,
-    required this.buttonText,
   });
 
   @override
@@ -64,8 +65,7 @@ class ServicesCard extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return services_page(
-                          title: 'قصتك',
+                        return GenerateStory(
                         ); // Ensure this matches the constructor of your HomePage
                       }));
                     },

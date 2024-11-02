@@ -12,7 +12,7 @@ class RecentStoryPage extends StatelessWidget {
       extendBodyBehindAppBar: true, // Extend the body behind the app bar
       appBar: AppBar(
         title: const Text(
-          'recent stories',
+          'المكتبة الصغيرة',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.transparent, // Makes the app bar transparent
@@ -22,23 +22,37 @@ class RecentStoryPage extends StatelessWidget {
         children: [
           // Background image
           Image.asset(
-            'lib/assets/recent-story-wallpaper.png', // Path to the background image
+            'lib/assets/library-wallpaper.png',
+            //'lib/assets/recent-story-wallpaper.png', // Path to the background image
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
           ),
           // Main content
+
           Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: GridView(
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-              children: [
-                RecentStoryCard(
-                  eventImagePath: 'lib/assets/sleep.png',
-                  eventOrganizer: 'sleepy wolf',
+            padding: const EdgeInsets.only(top: 200),
+            child: Center(
+              child: Container(
+                height: 300, // Set height for horizontal ListView
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    RecentStoryCard(
+                      eventImagePath: 'lib/assets/sleep.png',
+                      eventOrganizer: 'sleepy wolf',
+                    ),
+                    RecentStoryCard(
+                      eventImagePath: 'lib/assets/birdwatching.png',
+                      eventOrganizer: 'some kid watching',
+                    ),
+                    RecentStoryCard(
+                      eventImagePath: 'lib/assets/simpathy.jpg',
+                      eventOrganizer: 'some kid watching',
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ],

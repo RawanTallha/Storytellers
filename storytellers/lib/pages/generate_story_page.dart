@@ -47,13 +47,13 @@ class _GenerateStoryState extends State<GenerateStory> {
                 children: [
                   Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 128, 102, 215),
-                        borderRadius: BorderRadius.circular(10),
+                        color: Color.fromARGB(185, 41, 23, 101),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       alignment: Alignment.center,
                       height: 60,
                       child: Text(
-                        'some line thats kids approve',
+                        'اختر مغامرتك و ابدأ قصة جديدة',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -70,61 +70,65 @@ class _GenerateStoryState extends State<GenerateStory> {
                       color: Color.fromARGB(255, 248, 246, 255),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        // Dropdown for reading level
-                        DropdownButton<String>(
-                          value: selectedLevel,
-                          hint: const Text(
-                            "مستوى الصعوبة",
-                            style: TextStyle(
-                                color: Color.fromARGB(124, 158, 158, 158)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          // Dropdown for reading level
+                          DropdownButton<String>(
+                            value: selectedLevel,
+                            hint: const Text(
+                              "مستوى الصعوبة",
+                              style: TextStyle(
+                                  color: Color.fromARGB(124, 158, 158, 158)),
+                            ),
+                            items: readingLevel.map((String item) {
+                              return DropdownMenuItem<String>(
+                                value: item,
+                                child: Text(
+                                  item,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 64, 2, 138)),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                selectedLevel = newValue!;
+                              });
+                            },
                           ),
-                          items: readingLevel.map((String item) {
-                            return DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(
-                                item,
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 64, 2, 138)),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              selectedLevel = newValue!;
-                            });
-                          },
-                        ),
-                        SizedBox(
-                          width: 40,
-                        ),
-                        // Dropdown for story length
-                        DropdownButton<String>(
-                          value: selectedLength,
-                          hint: const Text(
-                            "طول القصة",
-                            style: TextStyle(
-                                color: Color.fromARGB(124, 158, 158, 158)),
+                          SizedBox(
+                            width: 40,
                           ),
-                          items: storyLength.map((String item) {
-                            return DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(
-                                item,
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 64, 2, 138)),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              selectedLength = newValue!;
-                            });
-                          },
-                        ),
-                      ],
+                          // Dropdown for story length
+                          DropdownButton<String>(
+                            value: selectedLength,
+                            hint: const Text(
+                              "طول القصة",
+                              style: TextStyle(
+                                  color: Color.fromARGB(124, 158, 158, 158)),
+                            ),
+                            items: storyLength.map((String item) {
+                              return DropdownMenuItem<String>(
+                                value: item,
+                                child: Text(
+                                  item,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 64, 2, 138)),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                selectedLength = newValue!;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -224,17 +228,55 @@ class _GenerateStoryState extends State<GenerateStory> {
                       child: Column(
                         children: [
                           Text(
-                            'اختار شخصيات حاب تضمها للقصة ',
+                            'من هم أبطال قصتك؟',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                               color: Color.fromARGB(255, 64, 2, 138),
                             ),
                           ),
+
+                          SizedBox(
+                            height: 15,
+                          ),
                           // ListView(
                           //   scrollDirection: Axis.horizontal,
                           //   children: [Image.asset('lib/assets/prince.png')],
                           // ),
+                          SizedBox(
+                            height: 200, // Set height for horizontal ListView
+                            child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  RecentStoryCard(
+                                    eventImagePath: 'lib/assets/sleep.png',
+                                    eventOrganizer: 'sleepy wolf',
+                                  ),
+                                  Card(
+                                    child: Container(
+                                        padding: EdgeInsets.all(20),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          color:
+                                              Color.fromARGB(98, 164, 26, 26),
+                                        ),
+                                        child: Image.asset(
+                                            'lib/assets/sleep.png'
+                                            )),
+                                  ),
+
+          //                         Expanded(
+          //   child: ClipRRect(
+          //       borderRadius: BorderRadius.circular(12),
+          //       child: Image.asset(
+          //         eventImagePath, // Allow the image to fill available width
+          //         fit: BoxFit
+          //             .cover, // Ensures the image covers the area without distortion
+          //       )),
+          // ),
+                                ]),
+                          ),
                         ],
                       ),
                     ),

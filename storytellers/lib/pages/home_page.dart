@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(213, 255, 233, 122),
+                          color: Color.fromARGB(197, 120, 78, 204),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         height: 100,
@@ -150,14 +150,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Image.asset(
-                        'lib/assets/character/princess.png',
+                        'lib/assets/character/prince.png',
                         height: 200,
                       ),
                     ],
                   ),
 
-                  SizedBox(height: 20),
-                  // Card with catch phrase
+                  SizedBox(height: 40),
+
+                  //Card with catch phrase
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Card(
@@ -165,28 +166,28 @@ class _HomePageState extends State<HomePage> {
                           0, 188, 20, 20), // Make card background transparent
                       elevation: 0,
                       child: Container(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 70),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(155, 108, 77, 212),
+                          color: Color.fromARGB(185, 41, 23, 101),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            // Optionally, add an image here if desired
                             Image.asset(
-                              'lib/assets/Astronaut.png',
-                              height: 150,
+                              'lib/assets/write.png',
+                              height: 100,
                             ),
+
                             // Catch phrase
-                            Expanded(
-                              child: Text(
-                                'كلام مالو معنى حقيقي و بس موجود عشان اشوف',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color: const Color.fromARGB(198, 255, 255,
-                                      255), // Adjust color as needed
-                                ),
+                            Text(
+                              'قصتك… حكاية بلمستك',
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: const Color.fromARGB(198, 255, 255,
+                                    255), // Adjust color as needed
                               ),
                             ),
                           ],
@@ -195,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
 
-                  SizedBox(height: 40),
+                  SizedBox(height: 20),
 
                   // generate your story list section
                   Padding(
@@ -218,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          'الفئات',
+                          'اختر مغامرتك',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -273,7 +274,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          'ريسنت ستوريز',
+                          'مكتبتي الصغيرة',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -303,13 +304,6 @@ class _HomePageState extends State<HomePage> {
                         RecentStoryCard(
                           eventImagePath: 'lib/assets/simpathy.jpg',
                           eventOrganizer: 'some kid watching',
-                        ),
-
-                        // Add more
-                        Expanded(
-                          child: Image.asset(
-                            'lib/assets/plus.png', // Allow the image to fill available width
-                          ),
                         ),
                       ],
                     ),

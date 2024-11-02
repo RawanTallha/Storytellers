@@ -16,7 +16,7 @@ class RecentStoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 100),
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 80),
       child: Card(
         child: Column(children: [
           // event image/ add

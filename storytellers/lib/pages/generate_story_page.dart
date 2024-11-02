@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:storytellers/card/recent_story_card.dart';
+import 'package:storytellers/card/character_card.dart';
+import 'package:storytellers/pages/home_page.dart';
 
 class GenerateStory extends StatefulWidget {
   const GenerateStory({super.key});
@@ -45,6 +46,9 @@ class _GenerateStoryState extends State<GenerateStory> {
             child: Container(
               child: ListView(
                 children: [
+                  SizedBox(
+                    height: 40,
+                  ),
                   Container(
                       decoration: BoxDecoration(
                         color: Color.fromARGB(185, 41, 23, 101),
@@ -235,50 +239,62 @@ class _GenerateStoryState extends State<GenerateStory> {
                               color: Color.fromARGB(255, 64, 2, 138),
                             ),
                           ),
-
                           SizedBox(
                             height: 15,
                           ),
-                          // ListView(
-                          //   scrollDirection: Axis.horizontal,
-                          //   children: [Image.asset('lib/assets/prince.png')],
-                          // ),
                           SizedBox(
                             height: 200, // Set height for horizontal ListView
                             child: ListView(
                                 scrollDirection: Axis.horizontal,
                                 children: [
-                                  RecentStoryCard(
-                                    eventImagePath: 'lib/assets/sleep.png',
-                                    eventOrganizer: 'sleepy wolf',
-                                  ),
-                                  Card(
-                                    child: Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          color:
-                                              Color.fromARGB(98, 164, 26, 26),
-                                        ),
-                                        child: Image.asset(
-                                            'lib/assets/sleep.png'
-                                            )),
-                                  ),
-
-          //                         Expanded(
-          //   child: ClipRRect(
-          //       borderRadius: BorderRadius.circular(12),
-          //       child: Image.asset(
-          //         eventImagePath, // Allow the image to fill available width
-          //         fit: BoxFit
-          //             .cover, // Ensures the image covers the area without distortion
-          //       )),
-          // ),
+                                  CharacterCard(
+                                      characterName: 'Prince',
+                                      charcterImagePath:
+                                          'lib/assets/character/prince.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess',
+                                      charcterImagePath:
+                                          'lib/assets/character/princess-yellow.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess',
+                                      charcterImagePath:
+                                          'lib/assets/character/princess.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess',
+                                      charcterImagePath:
+                                          'lib/assets/character/stupid-apple.png'),
+                                  CharacterCard(
+                                      characterName: 'TinkerBell',
+                                      charcterImagePath:
+                                          'lib/assets/character/tinker-bell.png'),
                                 ]),
                           ),
                         ],
                       ),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 15,
+                  ),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return HomePage(); // Ensure this matches the constructor of your HomePage
+                      }));
+                    },
+                    child: Text(
+                      'submit',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF81B2DD),
+                      minimumSize: Size(10, 50), // Set the width and height
                     ),
                   ),
                   // You can add more widgets here as needed

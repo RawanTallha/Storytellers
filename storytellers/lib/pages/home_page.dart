@@ -119,12 +119,12 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(197, 120, 78, 204),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        height: 100,
-                        width: 300,
+                        // decoration: BoxDecoration(
+                        //   color: Color.fromARGB(197, 120, 78, 204),
+                        //   borderRadius: BorderRadius.circular(20),
+                        // ),
+                        // height: 100,
+                        // width: 300,
                         child: Column(
                           children: [
                             SizedBox(
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Image.asset(
                         'lib/assets/character/prince.png',
-                        height: 200,
+                        height: 150,
                       ),
                     ],
                   ),
@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                       elevation: 0,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 70),
+                            vertical: 10, horizontal: 40),
                         decoration: BoxDecoration(
                           color: Color.fromARGB(185, 41, 23, 101),
                           borderRadius: BorderRadius.circular(20),
@@ -177,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Image.asset(
                               'lib/assets/write.png',
-                              height: 100,
+                              height: 80,
                             ),
 
                             // Catch phrase

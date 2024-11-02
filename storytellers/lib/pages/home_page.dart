@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            // IconButton(onPressed: () {}, icon: Icon(Icons.close)),
+            //IconButton(onPressed: () {}, icon: Icon(Icons.close)),
             SizedBox(height: 30),
             Container(
               alignment: Alignment.centerLeft, // Align to the left
@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+
             SizedBox(height: 20),
             ListTile(
               leading: Icon(Icons.account_circle,
@@ -80,6 +81,7 @@ class _HomePageState extends State<HomePage> {
             height: double.infinity,
             fit: BoxFit.cover,
           ),
+
           // Main content
           SafeArea(
             child: SingleChildScrollView(
@@ -111,25 +113,45 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
 
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'مرحبًا بك',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.white,
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(213, 255, 233, 122),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        height: 100,
+                        width: 300,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              'مرحبًا بك',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              'كاتبنا الصغير: لالا',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      Text(
-                        'كاتبنا الصغير: لالا',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          color: Colors.white,
-                        ),
+                      Image.asset(
+                        'lib/assets/princess.png',
+                        height: 200,
                       ),
                     ],
                   ),
@@ -140,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Card(
                       color: Color.fromARGB(
-                          0, 214, 41, 41), // Make card background transparent
+                          0, 188, 20, 20), // Make card background transparent
                       elevation: 0,
                       child: Container(
                         padding: const EdgeInsets.all(20),

@@ -13,10 +13,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: HomePage(),
-      //home: services_page(title: 'money talks'),
-      //home: history_page(),
-      home: GenerateStory(),
+      home: HomePage(),
+      //home: GenerateStory(),
     );
   }
 }

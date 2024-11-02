@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Image.asset(
-                        'lib/assets/princess.png',
+                        'lib/assets/character/princess.png',
                         height: 200,
                       ),
                     ],

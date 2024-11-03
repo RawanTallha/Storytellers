@@ -267,6 +267,18 @@ class _GenerateStoryState extends State<GenerateStory> {
                                       characterName: 'TinkerBell',
                                       charcterImagePath:
                                           'lib/assets/character/tinker-bell.png'),
+                                  CharacterCard(
+                                      characterName: 'Pirate',
+                                      charcterImagePath:
+                                          'lib/assets/character/pirate.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess',
+                                      charcterImagePath:
+                                          'lib/assets/character/princess-hair.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess?',
+                                      charcterImagePath:
+                                          'lib/assets/character/red-hood.png'),
                                 ]),
                           ),
                         ],

@@ -5,6 +5,7 @@ import 'package:storytellers/card/genre_card.dart';
 import 'package:flutter/material.dart';
 import 'package:storytellers/pages/recent_story_page.dart';
 import 'package:storytellers/pages/story_page.dart';
+import 'package:storytellers/pages/subscription_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -59,6 +60,16 @@ class _HomePageState extends State<HomePage> {
               title: Text('Settings'),
               onTap: () {
                 // Action for Settings
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.attach_money,
+                  color: Color.fromARGB(255, 121, 89, 178)),
+              title: Text('subscription plans'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SubscriptionPage();
+                }));
               },
             ),
             ListTile(

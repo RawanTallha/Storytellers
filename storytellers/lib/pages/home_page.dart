@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           // Background image
           Image.asset(
-            'lib/assets/background.png', // Path to the background image
+            'lib/assets/doodle-ver.png', // Path to the background image
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,

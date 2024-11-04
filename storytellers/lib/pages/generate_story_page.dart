@@ -90,6 +90,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                             hint: const Text(
                               "مستوى الصعوبة",
                               style: TextStyle(
+                                  fontSize: 14,
                                   color: Color.fromARGB(124, 158, 158, 158)),
                             ),
                             items: readingLevel.map((String item) {
@@ -109,7 +110,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                             },
                           ),
                           SizedBox(
-                            width: 15,
+                            width: 10,
                           ),
                           // Dropdown for story length
                           DropdownButton<String>(
@@ -117,6 +118,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                             hint: const Text(
                               "طول القصة",
                               style: TextStyle(
+                                  fontSize: 14,
                                   color: Color.fromARGB(124, 158, 158, 158)),
                             ),
                             items: storyLength.map((String item) {
@@ -136,7 +138,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                             },
                           ),
                           SizedBox(
-                            width: 15,
+                            width: 10,
                           ),
                           // Dropdown for story genre
                           DropdownButton<String>(
@@ -144,6 +146,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                             hint: const Text(
                               "نوع القصة",
                               style: TextStyle(
+                                  fontSize: 14,
                                   color: Color.fromARGB(124, 158, 158, 158)),
                             ),
                             items: Genre.map((String item) {
@@ -338,7 +341,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF81B2DD),
+                      backgroundColor: Color.fromARGB(255, 226, 174, 84),
                       minimumSize: Size(10, 50), // Set the width and height
                     ),
                   ),

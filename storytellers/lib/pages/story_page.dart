@@ -5,7 +5,6 @@ class StoryPage extends StatelessWidget {
   StoryPage({Key? key, required this.title}) : super(key: key);
   final String title;
 
-  // Initialize the controller
   final GlobalKey<PageFlipWidgetState> _controller =
       GlobalKey<PageFlipWidgetState>();
 
@@ -15,55 +14,68 @@ class StoryPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 20.0),
-            child: Text(
-              'The Great Adventure Book', // Book title
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-            ),
+          // Background image
+          Image.asset(
+            'lib/assets/story-wallpaper-dark.png', // Ensure this path is correct
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
           ),
-          Expanded(
-            child: Center(
-              child: Container(
-                padding: const EdgeInsets.all(10), // Padding around the book
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8), // Rounded corners
-                  border: Border.all(
-                    color: Colors.grey.shade400, // Border color
-                    width: 2, // Border thickness
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: Text(
+                  'The Great Adventure Book', // Book title
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(221, 45, 9, 116),
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 6,
-                      offset: Offset(0, 4), // Slight shadow for depth
-                    ),
-                  ],
-                ),
-                width: MediaQuery.of(context).size.width * 0.8, // Book width
-                height: MediaQuery.of(context).size.height * 0.6, // Book height
-                child: PageFlipWidget(
-                  key: _controller,
-                  backgroundColor: Colors.white,
-                  lastPage: Container(
-                    color: Colors.white,
-                    child: const Center(
-                        child: Text('The End', style: TextStyle(fontSize: 24))),
-                  ),
-                  children: <Widget>[
-                    for (var i = 0; i < 10; i++) DemoPage(page: i),
-                  ],
                 ),
               ),
-            ),
+              Expanded(
+                child: Center(
+                  child: Container(
+                    padding:
+                        const EdgeInsets.all(10), // Padding around the book
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(192, 74, 52, 28),
+                      borderRadius: BorderRadius.circular(8), // Rounded corners
+                      border: Border.all(
+                        color: Colors.grey.shade400,
+                        width: 2,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 6,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.height * 0.6,
+                    child: PageFlipWidget(
+                      key: _controller,
+                      backgroundColor: Colors.white,
+                      lastPage: Container(
+                        color: Colors.white,
+                        child: const Center(
+                            child: Text('The End',
+                                style: TextStyle(fontSize: 24))),
+                      ),
+                      children: <Widget>[
+                        for (var i = 0; i < 10; i++) DemoPage(page: i),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

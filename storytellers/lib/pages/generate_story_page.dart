@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:storytellers/card/character_card.dart';
 import 'package:storytellers/pages/home_page.dart';
+import 'package:storytellers/pages/story_page.dart';
 
 class GenerateStory extends StatefulWidget {
   const GenerateStory({super.key});
@@ -18,6 +19,9 @@ class _GenerateStoryState extends State<GenerateStory> {
 
   String? selectedLength;
   List<String> storyLength = ['قصة قصيرة', 'قصة طويلة'];
+
+  String? selectedGenre;
+  List<String> Genre = ['قصة حوارية', 'قصة شعرية', 'قصة وصفية'];
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +109,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                             },
                           ),
                           SizedBox(
-                            width: 40,
+                            width: 15,
                           ),
                           // Dropdown for story length
                           DropdownButton<String>(
@@ -128,6 +132,33 @@ class _GenerateStoryState extends State<GenerateStory> {
                             onChanged: (String? newValue) {
                               setState(() {
                                 selectedLength = newValue!;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          // Dropdown for story genre
+                          DropdownButton<String>(
+                            value: selectedGenre,
+                            hint: const Text(
+                              "نوع القصة",
+                              style: TextStyle(
+                                  color: Color.fromARGB(124, 158, 158, 158)),
+                            ),
+                            items: Genre.map((String item) {
+                              return DropdownMenuItem<String>(
+                                value: item,
+                                child: Text(
+                                  item,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 64, 2, 138)),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                selectedGenre = newValue!;
                               });
                             },
                           ),
@@ -294,7 +325,9 @@ class _GenerateStoryState extends State<GenerateStory> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return HomePage(); // Ensure this matches the constructor of your HomePage
+                        return StoryPage(
+                          title: 'story of me life',
+                        ); // Ensure this matches the constructor of your HomePage
                       }));
                     },
                     child: Text(

@@ -1,10 +1,30 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:storytellers/card/feedback_popup_card.dart';
 import 'package:storytellers/card/subscription_card.dart';
+import 'package:storytellers/pages/home_page.dart';
 
 class SubscriptionPage extends StatelessWidget {
   const SubscriptionPage({super.key});
+
+  void showFeedbackDialog(BuildContext context, String message, bool isSuccess) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return FeedbackPopup(
+          message: message,
+          isSuccess: isSuccess,
+          onClose: () {
+            Navigator.of(context).pop(); // Close the dialog
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return HomePage();
+            }));
+          },
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,43 +70,41 @@ class SubscriptionPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 22, 8, 128)),
                   ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Card(
-                      // color: Color.fromARGB(192, 219, 201, 247),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                Text(
-                                  'اشتراك شهري',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Text(
-                                  'بمبلغ رمزي قدره 5 ريالات للشهر',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Image.asset(
-                              'lib/assets/book (1).png',
-                              height: 70,
-                            ),
-                          ],
-                        ),
+                  SizedBox(height: 10),
+                  Text(
+                    'ابى اكتب شي هنا',
+                    style: TextStyle(
+                        fontSize: 18, color: Color.fromARGB(255, 85, 85, 85)),
+                  ),
+                  SizedBox(height: 30),
+                  SubscriptionCard(
+                      iconImagePath: 'lib/assets/book (3).png',
+                      subPeriod: 'اشتراك شهري',
+                      subPrice: '٥ دولار أمريكي / الشهر'),
+                  SubscriptionCard(
+                    iconImagePath: 'lib/assets/book (1).png',
+                    subPeriod: 'اشتراك سنوي', // Subscription period
+                    subPrice: '٥٠ دولار أمريكي / السنة',
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      showFeedbackDialog(context, "Subscription successful!", true);
+                    },
+                    child: Text(
+                      'submit',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(203, 22, 8, 128),
+                      minimumSize: Size(450, 60), // Set the width and height
+                    ),
                   ),
-                  SubscriptionCard(iconImagePath: 'lib/assets/book (3).png'),
                 ],
               ),
             ),

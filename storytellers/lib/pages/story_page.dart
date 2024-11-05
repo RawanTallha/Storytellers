@@ -8,17 +8,33 @@ class StoryPage extends StatelessWidget {
   final GlobalKey<PageFlipWidgetState> _controller =
       GlobalKey<PageFlipWidgetState>();
 
+  // Example story split into segments, including a cover image
+  final List<String?> storyPages = [
+    'lib/assets/book_cover.png', // Path to the book cover image
+    "Once upon a time, in a faraway land, there was a young girl named Lila...",
+    null, // Example null entry to test handling
+    "Lila had a magical book that could transport her to enchanted worlds...",
+    "One day, she opened the book and was whisked away to the Land of Dreams...",
+    "In the Land of Dreams, Lila met talking animals and mysterious creatures...",
+    "Her journey was filled with joy, wonder, and a bit of danger...",
+    "The End."
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title, style: const TextStyle(color: Colors.black)),
+        backgroundColor: Colors.transparent, // Makes the AppBar transparent
+        elevation: 0, // Removes shadow
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
+      extendBodyBehindAppBar: true,
       body: Stack(
         children: [
           // Background image
           Image.asset(
-            'lib/assets/story-wallpaper-dark.png', // Ensure this path is correct
+            'lib/assets/story-wallpaper-dark.png',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -27,28 +43,24 @@ class StoryPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0),
+                padding: EdgeInsets.symmetric(vertical: 10.0),
                 child: Text(
-                  'The Great Adventure Book', // Book title
+                  'The Great Adventure Book',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(221, 45, 9, 116),
+                    color: Colors.black87,
                   ),
                 ),
               ),
               Expanded(
                 child: Center(
                   child: Container(
-                    padding:
-                        const EdgeInsets.all(10), // Padding around the book
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(192, 74, 52, 28),
-                      borderRadius: BorderRadius.circular(8), // Rounded corners
-                      border: Border.all(
-                        color: Colors.grey.shade400,
-                        width: 2,
-                      ),
+                      color: Color.fromARGB(153, 80, 43, 14),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.grey.shade400, width: 2),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black12,
@@ -65,11 +77,17 @@ class StoryPage extends StatelessWidget {
                       lastPage: Container(
                         color: Colors.white,
                         child: const Center(
-                            child: Text('The End',
-                                style: TextStyle(fontSize: 24))),
+                          child: Text(
+                            'The End',
+                            style: TextStyle(fontSize: 24),
+                          ),
+                        ),
                       ),
-                      children: <Widget>[
-                        for (var i = 0; i < 10; i++) DemoPage(page: i),
+                      children: [
+                        for (var content in storyPages)
+                          DemoPage(
+                            content: content,
+                          ),
                       ],
                     ),
                   ),
@@ -80,28 +98,47 @@ class StoryPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.looks_5_outlined),
+        child: const Icon(Icons.start),
         onPressed: () {
-          _controller.currentState?.goToPage(5); // Navigate to page 5
+          _controller.currentState?.goToPage(0); // Navigate to page 5
         },
       ),
     );
   }
 }
 
-// Example of a simple page to flip
+// Updated DemoPage to display content
 class DemoPage extends StatelessWidget {
-  final int page;
+  final String? content; // Change to nullable to accommodate the cover image
 
-  const DemoPage({Key? key, required this.page}) : super(key: key);
+  const DemoPage({Key? key, required this.content}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Page $page',
-        style: const TextStyle(fontSize: 24),
-      ),
-    );
+    if (content?.endsWith('.png') == true ||
+        content?.endsWith('.jpg') == true) {
+      // Display the image if the content is a valid image path
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Image.asset(
+            'lib/assets/sleep.png',
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
+    } else {
+      // Display the text content
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            content ?? 'Content not available',
+            style: const TextStyle(fontSize: 18, color: Colors.black87),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    }
   }
 }

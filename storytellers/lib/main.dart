@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:storytellers/pages/generate_story_page.dart';
 import 'package:storytellers/pages/home_page.dart';
 import 'package:storytellers/pages/login_page.dart';
+import 'package:storytellers/pages/nav_bar_page.dart';
 import 'package:storytellers/pages/story_page.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //home: HomePage(),
-      home: LogInPage(),
+      //home: LogInPage(),
+      home: MyBottomNavigationBar(),
       //home: GenerateStory(),
       //home: StoryPage(title: 'Story Page'),
     );

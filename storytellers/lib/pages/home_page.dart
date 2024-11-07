@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:storytellers/card/community_card.dart';
 import 'package:storytellers/card/recent_story_card.dart';
 import 'package:storytellers/card/genre_card.dart';
 import 'package:flutter/material.dart';
 import 'package:storytellers/pages/login_page.dart';
+import 'package:storytellers/pages/profile_page.dart';
 import 'package:storytellers/pages/recent_story_page.dart';
 import 'package:storytellers/pages/story_page.dart';
 import 'package:storytellers/pages/subscription_page.dart';
@@ -16,6 +18,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +33,6 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            //IconButton(onPressed: () {}, icon: Icon(Icons.close)),
             SizedBox(height: 30),
             Container(
               alignment: Alignment.centerLeft, // Align to the left
@@ -36,29 +45,21 @@ class _HomePageState extends State<HomePage> {
                   Icon(Icons.menu_rounded,
                       color: Color.fromARGB(255, 121, 89, 178)),
                   Text(
-                    'More',
+                    'المزيد',
                     style: TextStyle(
                       fontSize: 24,
+                      fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 121, 89, 178),
                     ),
                   ),
                 ],
               ),
             ),
-
             SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.account_circle,
-                  color: Color.fromARGB(255, 121, 89, 178)),
-              title: Text('Profile'),
-              onTap: () {
-                // Action for Settings
-              },
-            ),
             ListTile(
               leading: Icon(Icons.settings,
                   color: Color.fromARGB(255, 121, 89, 178)),
-              title: Text('Settings'),
+              title: Text('الإعدادات'),
               onTap: () {
                 // Action for Settings
               },
@@ -66,7 +67,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(Icons.attach_money,
                   color: Color.fromARGB(255, 121, 89, 178)),
-              title: Text('subscription plans'),
+              title: Text('خطة الاشتراك'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return SubscriptionPage();
@@ -74,9 +75,9 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.contact_support_sharp,
+              leading: Icon(Icons.support_agent,
                   color: Color.fromARGB(255, 121, 89, 178)),
-              title: Text('Contact us'),
+              title: Text('تواصل معنا'),
               onTap: () {
                 // Action for Settings
               },
@@ -84,7 +85,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(Icons.exit_to_app,
                   color: Color.fromARGB(255, 121, 89, 178)),
-              title: Text('Log out'),
+              title: Text('الخروج من الحساب'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return LogInPage();
@@ -141,12 +142,6 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        // decoration: BoxDecoration(
-                        //   color: Color.fromARGB(197, 120, 78, 204),
-                        //   borderRadius: BorderRadius.circular(20),
-                        // ),
-                        // height: 100,
-                        // width: 300,
                         child: Column(
                           children: [
                             SizedBox(
@@ -277,7 +272,7 @@ class _HomePageState extends State<HomePage> {
 
                   SizedBox(height: 40),
 
-                  // Events section
+                  // section
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
@@ -309,12 +304,15 @@ class _HomePageState extends State<HomePage> {
 
                   SizedBox(height: 25),
 
-                  // Horizontal ListView for story genres
+                  // Horizontal ListView for stories
                   SizedBox(
                     height: 200, // Set height for horizontal ListView
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
+                        SizedBox(
+                          width: 15,
+                        ),
                         RecentStoryCard(
                           eventImagePath: 'lib/assets/sleep.png',
                           eventOrganizer: 'sleepy wolf',
@@ -331,9 +329,55 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
 
-                  SizedBox(height: 25),
+                  SizedBox(height: 40),
 
-                  // Additional events section, if needed
+                  // Events section
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return RecentStoryPage();
+                            }));
+                          },
+                          child: Text(
+                            'المزيد',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        Text(
+                          'مجتمع الكتاب الصغار',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  //SizedBox(height: 5),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: SizedBox(
+                      height: 200, // Set height for horizontal ListView
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          CommunityCard(),
+                          CommunityCard(),
+                          CommunityCard(),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  // add additional section if needed
                 ],
               ),
             ),

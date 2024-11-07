@@ -84,34 +84,34 @@ class _GenerateStoryState extends State<GenerateStory> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // Dropdown for reading level
-                          DropdownButton<String>(
-                            value: selectedLevel,
-                            hint: const Text(
-                              "مستوى الصعوبة",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Color.fromARGB(124, 158, 158, 158)),
-                            ),
-                            items: readingLevel.map((String item) {
-                              return DropdownMenuItem<String>(
-                                value: item,
-                                child: Text(
-                                  item,
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 64, 2, 138)),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedLevel = newValue!;
-                              });
-                            },
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          // // Dropdown for reading level
+                          // DropdownButton<String>(
+                          //   value: selectedLevel,
+                          //   hint: const Text(
+                          //     "مستوى الصعوبة",
+                          //     style: TextStyle(
+                          //         fontSize: 14,
+                          //         color: Color.fromARGB(124, 158, 158, 158)),
+                          //   ),
+                          //   items: readingLevel.map((String item) {
+                          //     return DropdownMenuItem<String>(
+                          //       value: item,
+                          //       child: Text(
+                          //         item,
+                          //         style: TextStyle(
+                          //             color: Color.fromARGB(255, 64, 2, 138)),
+                          //       ),
+                          //     );
+                          //   }).toList(),
+                          //   onChanged: (String? newValue) {
+                          //     setState(() {
+                          //       selectedLevel = newValue!;
+                          //     });
+                          //   },
+                          // ),
+                          // SizedBox(
+                          //   width: 10,
+                          // ),
                           // Dropdown for story length
                           DropdownButton<String>(
                             value: selectedLength,
@@ -144,7 +144,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                           DropdownButton<String>(
                             value: selectedGenre,
                             hint: const Text(
-                              "نوع القصة",
+                              "نوع السرد",
                               style: TextStyle(
                                   fontSize: 14,
                                   color: Color.fromARGB(124, 158, 158, 158)),
@@ -197,7 +197,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                               SizedBox(height: 20),
                               TextField(
                                 decoration: InputDecoration(
-                                  hintText: 'سبايدرمان الدوادمي',
+                                  hintText: 'مثال...',
                                   hintStyle: TextStyle(
                                       color: Colors.grey, fontSize: 14),
                                   border: OutlineInputBorder(
@@ -329,7 +329,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return StoryPage(
-                          title: 'story of me life',
+                          title: '',
                         ); // Ensure this matches the constructor of your HomePage
                       }));
                     },

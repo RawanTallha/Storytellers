@@ -42,17 +42,17 @@ class StoryPage extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0),
-                child: Text(
-                  'The Great Adventure Book',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ),
-              ),
+              // const Padding(
+              //   padding: EdgeInsets.symmetric(vertical: 10.0),
+              //   child: Text(
+              //     'The Great Adventure Book',
+              //     style: TextStyle(
+              //       fontSize: 24,
+              //       fontWeight: FontWeight.bold,
+              //       color: Colors.black87,
+              //     ),
+              //   ),
+              // ),
               Expanded(
                 child: Center(
                   child: Container(
@@ -120,9 +120,11 @@ class DemoPage extends StatelessWidget {
       // Display the image if the content is a valid image path
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(1.0),
           child: Image.asset(
             'lib/assets/sleep.png',
+            width: double.infinity,
+            height: double.infinity,
             fit: BoxFit.cover,
           ),
         ),

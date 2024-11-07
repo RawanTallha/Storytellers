@@ -94,7 +94,7 @@ class ProfilePage extends StatelessWidget {
         children: [
           // Background image
           Image.asset(
-            'lib/assets/rename-wallpaper.png', // Path to the background image
+            'lib/assets/top-ranked-wakkpaper.png', // Path to the background image
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -117,7 +117,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                     child: ClipOval(
                       child: Image.asset(
-                        'lib/assets/sleep.png',
+                        'lib/assets/monsters/monster (1).png',
                         height: 150,
                         width: 150,
                         fit: BoxFit.cover,

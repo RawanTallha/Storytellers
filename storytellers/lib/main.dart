@@ -4,6 +4,7 @@ import 'package:storytellers/pages/home_page.dart';
 import 'package:storytellers/pages/login_page.dart';
 import 'package:storytellers/pages/nav_bar_page.dart';
 import 'package:storytellers/pages/story_page.dart';
+import 'package:storytellers/pages/welcome_page.dart';
 
 void main() {
   runApp(MainApp());
@@ -19,6 +20,7 @@ class MainApp extends StatelessWidget {
       //home: HomePage(),
       //home: LogInPage(),
       home: MyBottomNavigationBar(),
+      //home: WelcomePage(),
       //home: GenerateStory(),
       //home: StoryPage(title: 'Story Page'),
     );

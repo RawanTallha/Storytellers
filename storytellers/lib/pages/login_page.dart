@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:storytellers/pages/home_page.dart';
+import 'package:storytellers/pages/nav_bar_page.dart';
 
 class LogInPage extends StatelessWidget {
   const LogInPage({super.key});
@@ -35,7 +36,8 @@ class LogInPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    MaterialPageRoute(
+                        builder: (context) => const MyBottomNavigationBar()),
                   );
                 },
                 child: const Text('متابعة'),

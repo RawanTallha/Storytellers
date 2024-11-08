@@ -1,8 +1,19 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:storytellers/pages/home_page.dart';
 
 class CommunityCard extends StatelessWidget {
-  const CommunityCard({super.key});
+  final storyImagePath;
+  final String storyTitle;
+  final String authorsName;
+
+// constructor to change icon and service in every card
+  CommunityCard({
+    required this.storyImagePath,
+    required this.storyTitle,
+    required this.authorsName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +36,7 @@ class CommunityCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    'روان و البعبع',
+                    storyTitle,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
@@ -35,7 +46,7 @@ class CommunityCard extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    'اسم الكاتب: محمد الغامدي',
+                    'اسم الكاتب: $authorsName',
                     style: TextStyle(
                       fontWeight: FontWeight.w100,
                       fontSize: 14,
@@ -53,7 +64,7 @@ class CommunityCard extends StatelessWidget {
                       }));
                     },
                     child: Text(
-                      'اقرأ المزيد',
+                      'أستكشف القصة',
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -67,16 +78,11 @@ class CommunityCard extends StatelessWidget {
               SizedBox(
                 width: 20,
               ),
-              // Image.asset(
-              //   'lib/assets/simpathy.jpg',
-              //   height: 100,
-              //   //fit: BoxFit.cover,
-              // ),
               Expanded(
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: Image.asset(
-                      'lib/assets/simpathy.jpg', // Allow the image to fill available width
+                      storyImagePath, // Allow the image to fill available width
                       width: 100,
                       height: 100,
                       fit: BoxFit.cover,

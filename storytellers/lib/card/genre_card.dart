@@ -3,6 +3,7 @@
 //import 'dart:ffi';
 
 import 'package:storytellers/pages/generate_story_page.dart';
+import 'package:storytellers/pages/pick_genre_page.dart';
 import 'package:storytellers/pages/recent_story_page.dart';
 import 'package:storytellers/pages/home_page.dart';
 import 'package:storytellers/pages/story_page.dart';
@@ -11,14 +12,12 @@ import 'package:flutter/material.dart';
 class GenreCard extends StatelessWidget {
   final iconImagePath;
   final String serviceName;
-// final pageName;
   final String pageTitle;
 
 // constructor to change icon and service in every card
   GenreCard({
     required this.iconImagePath,
     required this.serviceName,
-    //required this.pageName,
     required this.pageTitle,
   });
 
@@ -30,6 +29,8 @@ class GenreCard extends StatelessWidget {
       child: Card(
         child: Container(
           padding: EdgeInsets.all(20),
+          height: 240,
+          width: 500,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             color: Color.fromARGB(99, 255, 255, 255),
@@ -65,8 +66,7 @@ class GenreCard extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return GenerateStory(
-                        ); // Ensure this matches the constructor of your HomePage
+                        return PickGenrePage(); // Ensure this matches the constructor of your HomePage
                       }));
                     },
                     child: Text(
@@ -86,8 +86,8 @@ class GenreCard extends StatelessWidget {
               ),
               Image.asset(
                 iconImagePath,
-                height: 100,
-                //fit: BoxFit.cover,
+                height: 104,
+                fit: BoxFit.cover,
               ),
             ],
           ),

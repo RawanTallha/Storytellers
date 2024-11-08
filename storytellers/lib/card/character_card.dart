@@ -26,12 +26,9 @@ class _CharacterCardState extends State<CharacterCard> {
             Column(
               children: [
                 Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(
-                      widget.charcterImagePath,
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    widget.charcterImagePath,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Padding(

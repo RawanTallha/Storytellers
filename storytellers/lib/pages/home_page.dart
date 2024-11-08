@@ -4,6 +4,7 @@ import 'package:storytellers/card/community_card.dart';
 import 'package:storytellers/card/recent_story_card.dart';
 import 'package:storytellers/card/genre_card.dart';
 import 'package:flutter/material.dart';
+import 'package:storytellers/pages/community_page.dart';
 import 'package:storytellers/pages/login_page.dart';
 import 'package:storytellers/pages/profile_page.dart';
 import 'package:storytellers/pages/recent_story_page.dart';
@@ -257,16 +258,6 @@ class _HomePageState extends State<HomePage> {
                         iconImagePath: 'lib/assets/book.png',
                         pageTitle: '',
                       ),
-                      GenreCard(
-                        serviceName: 'قصة شعرية',
-                        iconImagePath: 'lib/assets/fairy-tale.png',
-                        pageTitle: '',
-                      ),
-                      GenreCard(
-                        serviceName: 'قصة وصفية',
-                        iconImagePath: 'lib/assets/bedtime.png',
-                        pageTitle: '',
-                      ),
                     ],
                   ),
 
@@ -315,15 +306,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                         RecentStoryCard(
                           eventImagePath: 'lib/assets/sleep.png',
-                          eventOrganizer: 'sleepy wolf',
+                          eventOrganizer: 'الذئب النائم',
                         ),
                         RecentStoryCard(
                           eventImagePath: 'lib/assets/birdwatching.png',
-                          eventOrganizer: 'some kid watching',
+                          eventOrganizer: 'عالم الطيور',
                         ),
                         RecentStoryCard(
                           eventImagePath: 'lib/assets/simpathy.jpg',
-                          eventOrganizer: 'some kid watching',
+                          eventOrganizer: 'الكلب اللطيف',
                         ),
                       ],
                     ),
@@ -341,7 +332,7 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return RecentStoryPage();
+                              return CommunityPage();
                             }));
                           },
                           child: Text(
@@ -369,9 +360,10 @@ class _HomePageState extends State<HomePage> {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
-                          CommunityCard(),
-                          CommunityCard(),
-                          CommunityCard(),
+                          CommunityCard(
+                              authorsName: 'محمد الغامدي ',
+                              storyTitle: 'الذئب الصغير',
+                              storyImagePath: 'lib/assets/sleep.png'),
                         ],
                       ),
                     ),

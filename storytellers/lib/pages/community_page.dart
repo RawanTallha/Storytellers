@@ -93,7 +93,7 @@ class CommunityPage extends StatelessWidget {
         children: [
           // Background image
           Image.asset(
-            'lib/assets/rename-wallpaper.png', // Path to the background image
+            'lib/assets/top-ranked-wakkpaper.png', // Path to the background image
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -103,12 +103,16 @@ class CommunityPage extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 30),
+                  SizedBox(height: 50),
                   Text(
-                    'some fansy text',
+                    'معًا نحول أحلام الاطفال الى ',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   ),
-                  SizedBox(height: 20),
+                  Text(
+                    'حكايات ممتعة',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  ),
+                  SizedBox(height: 30),
                   // Image carousel
                   SizedBox(
                     height: 380,
@@ -139,28 +143,28 @@ class CommunityPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       children: [
                         ProfileCard(
-                          name: 'aseel',
+                          name: 'اسيل',
                           imagePath: 'lib/assets/monsters/monster (17).png',
                         ),
                         ProfileCard(
-                          name: 'lina',
+                          name: 'لينا',
                           imagePath: 'lib/assets/monsters/monster (16).png',
                         ),
                         ProfileCard(
-                          name: 'omar',
+                          name: 'عمر',
                           imagePath: 'lib/assets/monsters/monster (15).png',
                         ),
                         ProfileCard(
-                          name: 'aseel',
-                          imagePath: 'lib/assets/monsters/monster (17).png',
+                          name: 'احمد',
+                          imagePath: 'lib/assets/monsters/monster (1).png',
                         ),
                         ProfileCard(
-                          name: 'lina',
-                          imagePath: 'lib/assets/monsters/monster (16).png',
+                          name: 'علي',
+                          imagePath: 'lib/assets/monsters/monster (6).png',
                         ),
                         ProfileCard(
-                          name: 'omar',
-                          imagePath: 'lib/assets/monsters/monster (15).png',
+                          name: 'عبدالعزيز',
+                          imagePath: 'lib/assets/monsters/monster (5).png',
                         ),
                       ],
                     ),

@@ -38,17 +38,20 @@ class RecentStoryPage extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
+                    SizedBox(
+                      width: 20,
+                    ),
                     RecentStoryCard(
                       eventImagePath: 'lib/assets/sleep.png',
-                      eventOrganizer: 'sleepy wolf',
+                      eventOrganizer: 'الذئب النائم',
                     ),
                     RecentStoryCard(
                       eventImagePath: 'lib/assets/birdwatching.png',
-                      eventOrganizer: 'some kid watching',
+                      eventOrganizer: 'عالم الطيور',
                     ),
                     RecentStoryCard(
                       eventImagePath: 'lib/assets/simpathy.jpg',
-                      eventOrganizer: 'some kid watching',
+                      eventOrganizer: 'الكلب اللطيف',
                     ),
                   ],
                 ),

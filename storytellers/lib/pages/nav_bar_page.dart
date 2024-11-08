@@ -4,20 +4,31 @@ import 'package:storytellers/pages/home_page.dart';
 import 'package:storytellers/pages/profile_page.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({super.key});
+  final int currentIndex;
+
+  // Constructor that accepts currentIndex with a default value of 0 if not provided
+  const MyBottomNavigationBar({Key? key, this.currentIndex = 0})
+      : super(key: key);
 
   @override
   State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
 }
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-  int currentIndex = 0;
+  late int currentIndex;
 
   final List<Widget> screens = [
     const HomePage(),
-    const CommunityPage(), // Assuming this is a placeholder for a different page
+    const CommunityPage(),
     const ProfilePage(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex =
+        widget.currentIndex; // Initialize with the provided currentIndex
+  }
 
   void onTabTapped(int index) {
     setState(() {

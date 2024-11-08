@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:storytellers/card/character_card.dart';
+import 'package:storytellers/card/generate_genre_card.dart';
 import 'package:storytellers/pages/home_page.dart';
 import 'package:storytellers/pages/story_page.dart';
 
@@ -66,104 +67,157 @@ class _GenerateStoryState extends State<GenerateStory> {
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                        ),
+                        
                       )),
 
+                  // SizedBox(
+                  //   height: 30,
+                  // ),
+                  // // drop down settings
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     color: Color.fromARGB(255, 248, 246, 255),
+                  //     borderRadius: BorderRadius.circular(10),
+                  //   ),
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.symmetric(
+                  //         vertical: 10, horizontal: 20),
+                  //     child: Row(
+                  //       mainAxisAlignment: MainAxisAlignment.end,
+                  //       children: [
+                  //         DropdownButton<String>(
+                  //           value: selectedLength,
+                  //           hint: const Text(
+                  //             "طول القصة",
+                  //             style: TextStyle(
+                  //                 fontSize: 14,
+                  //                 color: Color.fromARGB(124, 158, 158, 158)),
+                  //           ),
+                  //           items: storyLength.map((String item) {
+                  //             return DropdownMenuItem<String>(
+                  //               value: item,
+                  //               child: Text(
+                  //                 item,
+                  //                 style: TextStyle(
+                  //                     color: Color.fromARGB(255, 64, 2, 138)),
+                  //               ),
+                  //             );
+                  //           }).toList(),
+                  //           onChanged: (String? newValue) {
+                  //             setState(() {
+                  //               selectedLength = newValue!;
+                  //             });
+                  //           },
+                  //         ),
+                  //         SizedBox(
+                  //           width: 10,
+                  //         ),
+                  //         // Dropdown for story genre
+                  //         DropdownButton<String>(
+                  //           value: selectedGenre,
+                  //           hint: const Text(
+                  //             "نوع السرد",
+                  //             style: TextStyle(
+                  //                 fontSize: 14,
+                  //                 color: Color.fromARGB(124, 158, 158, 158)),
+                  //           ),
+                  //           items: Genre.map((String item) {
+                  //             return DropdownMenuItem<String>(
+                  //               value: item,
+                  //               child: Text(
+                  //                 item,
+                  //                 style: TextStyle(
+                  //                     color: Color.fromARGB(255, 64, 2, 138)),
+                  //               ),
+                  //             );
+                  //           }).toList(),
+                  //           onChanged: (String? newValue) {
+                  //             setState(() {
+                  //               selectedGenre = newValue!;
+                  //             });
+                  //           },
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+
+                  // SizedBox(
+                  //   height: 200, // Set height for horizontal ListView
+                  //   child:
+                  //       ListView(scrollDirection: Axis.horizontal, children: [
+                  //     generateGenreCard(
+                  //         genre: 'قصة حوارية',
+                  //         ImagePath: 'lib/assets/storytelling.png'),
+                  //     generateGenreCard(
+                  //         genre: 'قصة شعرية', ImagePath: 'lib/assets/poet.png'),
+                  //     generateGenreCard(
+                  //         genre: 'قصة وصفية',
+                  //         ImagePath: 'lib/assets/conversation.png'),
+                  //   ]),
+                  // ),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
-                  // drop down settings
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 248, 246, 255),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                     ),
+                    //alignment: Alignment.centerRight,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
                         children: [
-                          // // Dropdown for reading level
-                          // DropdownButton<String>(
-                          //   value: selectedLevel,
-                          //   hint: const Text(
-                          //     "مستوى الصعوبة",
-                          //     style: TextStyle(
-                          //         fontSize: 14,
-                          //         color: Color.fromARGB(124, 158, 158, 158)),
-                          //   ),
-                          //   items: readingLevel.map((String item) {
-                          //     return DropdownMenuItem<String>(
-                          //       value: item,
-                          //       child: Text(
-                          //         item,
-                          //         style: TextStyle(
-                          //             color: Color.fromARGB(255, 64, 2, 138)),
-                          //       ),
-                          //     );
-                          //   }).toList(),
-                          //   onChanged: (String? newValue) {
-                          //     setState(() {
-                          //       selectedLevel = newValue!;
-                          //     });
-                          //   },
-                          // ),
-                          // SizedBox(
-                          //   width: 10,
-                          // ),
-                          // Dropdown for story length
-                          DropdownButton<String>(
-                            value: selectedLength,
-                            hint: const Text(
-                              "طول القصة",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Color.fromARGB(124, 158, 158, 158)),
+                          Text(
+                            'من هم أبطال قصتك؟',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: Color.fromARGB(255, 64, 2, 138),
                             ),
-                            items: storyLength.map((String item) {
-                              return DropdownMenuItem<String>(
-                                value: item,
-                                child: Text(
-                                  item,
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 64, 2, 138)),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedLength = newValue!;
-                              });
-                            },
                           ),
                           SizedBox(
-                            width: 10,
+                            height: 15,
                           ),
-                          // Dropdown for story genre
-                          DropdownButton<String>(
-                            value: selectedGenre,
-                            hint: const Text(
-                              "نوع السرد",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Color.fromARGB(124, 158, 158, 158)),
-                            ),
-                            items: Genre.map((String item) {
-                              return DropdownMenuItem<String>(
-                                value: item,
-                                child: Text(
-                                  item,
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 64, 2, 138)),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedGenre = newValue!;
-                              });
-                            },
+                          SizedBox(
+                            height: 200, // Set height for horizontal ListView
+                            child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  CharacterCard(
+                                      characterName: 'Prince',
+                                      charcterImagePath:
+                                          'lib/assets/character/prince.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess',
+                                      charcterImagePath:
+                                          'lib/assets/character/princess-yellow.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess',
+                                      charcterImagePath:
+                                          'lib/assets/character/princess.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess',
+                                      charcterImagePath:
+                                          'lib/assets/character/stupid-apple.png'),
+                                  CharacterCard(
+                                      characterName: 'TinkerBell',
+                                      charcterImagePath:
+                                          'lib/assets/character/tinker-bell.png'),
+                                  CharacterCard(
+                                      characterName: 'Pirate',
+                                      charcterImagePath:
+                                          'lib/assets/character/pirate.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess',
+                                      charcterImagePath:
+                                          'lib/assets/character/princess-hair.png'),
+                                  CharacterCard(
+                                      characterName: 'Princess?',
+                                      charcterImagePath:
+                                          'lib/assets/character/red-hood.png'),
+                                ]),
                           ),
                         ],
                       ),
@@ -255,70 +309,6 @@ class _GenerateStoryState extends State<GenerateStory> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            'من هم أبطال قصتك؟',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: Color.fromARGB(255, 64, 2, 138),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          SizedBox(
-                            height: 200, // Set height for horizontal ListView
-                            child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  CharacterCard(
-                                      characterName: 'Prince',
-                                      charcterImagePath:
-                                          'lib/assets/character/prince.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess',
-                                      charcterImagePath:
-                                          'lib/assets/character/princess-yellow.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess',
-                                      charcterImagePath:
-                                          'lib/assets/character/princess.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess',
-                                      charcterImagePath:
-                                          'lib/assets/character/stupid-apple.png'),
-                                  CharacterCard(
-                                      characterName: 'TinkerBell',
-                                      charcterImagePath:
-                                          'lib/assets/character/tinker-bell.png'),
-                                  CharacterCard(
-                                      characterName: 'Pirate',
-                                      charcterImagePath:
-                                          'lib/assets/character/pirate.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess',
-                                      charcterImagePath:
-                                          'lib/assets/character/princess-hair.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess?',
-                                      charcterImagePath:
-                                          'lib/assets/character/red-hood.png'),
-                                ]),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
 
                   SizedBox(
                     height: 15,

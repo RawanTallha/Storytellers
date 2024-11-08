@@ -23,26 +23,29 @@ class _CharacterCardState extends State<CharacterCard> {
       child: Card(
         child: Stack(
           children: [
-            Column(
-              children: [
-                Expanded(
-                  child: Image.asset(
-                    widget.charcterImagePath,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Text(
-                    widget.characterName,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 59, 18, 129),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      widget.charcterImagePath,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      widget.characterName,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 59, 18, 129),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             // Checkbox at the top-right corner
             Positioned(

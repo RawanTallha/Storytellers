@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:storytellers/card/character_card.dart';
-import 'package:storytellers/card/generate_genre_card.dart';
+import 'package:storytellers/card/picked_genre_card.dart';
 import 'package:storytellers/pages/home_page.dart';
 import 'package:storytellers/pages/story_page.dart';
 
@@ -67,7 +67,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                        
+                        ),
                       )),
 
                   // SizedBox(
@@ -159,70 +159,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    //alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            'من هم أبطال قصتك؟',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: Color.fromARGB(255, 64, 2, 138),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          SizedBox(
-                            height: 200, // Set height for horizontal ListView
-                            child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  CharacterCard(
-                                      characterName: 'Prince',
-                                      charcterImagePath:
-                                          'lib/assets/character/prince.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess',
-                                      charcterImagePath:
-                                          'lib/assets/character/princess-yellow.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess',
-                                      charcterImagePath:
-                                          'lib/assets/character/princess.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess',
-                                      charcterImagePath:
-                                          'lib/assets/character/stupid-apple.png'),
-                                  CharacterCard(
-                                      characterName: 'TinkerBell',
-                                      charcterImagePath:
-                                          'lib/assets/character/tinker-bell.png'),
-                                  CharacterCard(
-                                      characterName: 'Pirate',
-                                      charcterImagePath:
-                                          'lib/assets/character/pirate.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess',
-                                      charcterImagePath:
-                                          'lib/assets/character/princess-hair.png'),
-                                  CharacterCard(
-                                      characterName: 'Princess?',
-                                      charcterImagePath:
-                                          'lib/assets/character/red-hood.png'),
-                                ]),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+
                   SizedBox(
                     height: 20,
                   ),
@@ -324,7 +261,7 @@ class _GenerateStoryState extends State<GenerateStory> {
                       }));
                     },
                     child: Text(
-                      'submit',
+                      'اكتب القصة',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,

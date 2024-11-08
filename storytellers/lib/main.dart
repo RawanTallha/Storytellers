@@ -20,11 +20,11 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //home: HomePage(),
       //home: LogInPage(),
-      home: MyBottomNavigationBar(currentIndex: 0),
+      home: MyBottomNavigationBar(),
       //home: WelcomePage(),
       //home: PickGenrePage(),
       //home: GenerateStory(),
       //home: StoryPage(title: 'Story Page'),
     );
   }
-}
+}  

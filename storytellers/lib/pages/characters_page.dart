@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:storytellers/card/character_card.dart';
+import 'package:storytellers/pages/generate_story_page.dart';
 
 class CharPage extends StatefulWidget {
   const CharPage({super.key});
@@ -12,100 +13,108 @@ class _CharPageState extends State<CharPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true, // Extend the body behind the app bar
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text(
           'اختر مغامرتك',
           style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: Colors.transparent, // Makes the app bar transparent
-        elevation: 0, // Removes the app bar shadow
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
-      body: Stack(
-        children: [
-          // Background image
-          Image.asset(
-            'lib/assets/generate-wallpaper (2).png', // Path to the background image
-            width: double.infinity,
-            height: double.infinity,
+      // Using a Column to stack the header and GridView without overlap issues
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('lib/assets/generate-wallpaper (2).png'),
             fit: BoxFit.cover,
           ),
-
-Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Container(
-              child: ListView(
-                children: [
-                  SizedBox(
-                    height: 40,
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 100,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(185, 41, 23, 101),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                alignment: Alignment.center,
+                height: 60,
+                child: Text(
+                  'اختر ابطالك و ابدأ قصة جديدة',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-                  Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(185, 41, 23, 101),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      alignment: Alignment.center,
-                      height: 60,
-                      child: Text(
-                        'اختر مغامرتك و ابدأ قصة جديدة',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      )),],),),),
-
-
-          Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(185, 41, 23, 101),
-                borderRadius: BorderRadius.circular(20),
+                ),
               ),
-              alignment: Alignment.center,
-              height: 60,
+            ),
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 3,
+                padding: const EdgeInsets.all(10.0),
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 10.0,
+                children: [
+                  CharacterCard(
+                      characterName: 'Prince',
+                      charcterImagePath: 'lib/assets/character/prince.png'),
+                  CharacterCard(
+                      characterName: 'Prince',
+                      charcterImagePath: 'lib/assets/character/prince.png'),
+                  CharacterCard(
+                      characterName: 'Princess',
+                      charcterImagePath:
+                          'lib/assets/character/princess-yellow.png'),
+                  CharacterCard(
+                      characterName: 'Princess',
+                      charcterImagePath: 'lib/assets/character/princess.png'),
+                  CharacterCard(
+                      characterName: 'Princess',
+                      charcterImagePath:
+                          'lib/assets/character/stupid-apple.png'),
+                  CharacterCard(
+                      characterName: 'TinkerBell',
+                      charcterImagePath:
+                          'lib/assets/character/tinker-bell.png'),
+                  CharacterCard(
+                      characterName: 'Pirate',
+                      charcterImagePath: 'lib/assets/character/pirate.png'),
+                  CharacterCard(
+                      characterName: 'Princess',
+                      charcterImagePath:
+                          'lib/assets/character/princess-hair.png'),
+                  CharacterCard(
+                      characterName: 'Princess?',
+                      charcterImagePath: 'lib/assets/character/red-hood.png'),
+                ],
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return GenerateStory(); // Ensure this matches the constructor of your HomePage
+                }));
+              },
               child: Text(
-                'اختر مغامرتك و ابدأ قصة جديدة',
+                'التالي',
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                   color: Colors.white,
                 ),
-              )),
-          GridView(
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-            children: [
-              CharacterCard(
-                  characterName: 'Prince',
-                  charcterImagePath: 'lib/assets/character/prince.png'),
-              CharacterCard(
-                  characterName: 'Prince',
-                  charcterImagePath: 'lib/assets/character/prince.png'),
-              CharacterCard(
-                  characterName: 'Princess',
-                  charcterImagePath:
-                      'lib/assets/character/princess-yellow.png'),
-              CharacterCard(
-                  characterName: 'Princess',
-                  charcterImagePath: 'lib/assets/character/princess.png'),
-              CharacterCard(
-                  characterName: 'Princess',
-                  charcterImagePath: 'lib/assets/character/stupid-apple.png'),
-              CharacterCard(
-                  characterName: 'TinkerBell',
-                  charcterImagePath: 'lib/assets/character/tinker-bell.png'),
-              CharacterCard(
-                  characterName: 'Pirate',
-                  charcterImagePath: 'lib/assets/character/pirate.png'),
-              CharacterCard(
-                  characterName: 'Princess',
-                  charcterImagePath: 'lib/assets/character/princess-hair.png'),
-              CharacterCard(
-                  characterName: 'Princess?',
-                  charcterImagePath: 'lib/assets/character/red-hood.png'),
-            ],
-          )
-        ],
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(224, 255, 177, 81),
+                minimumSize: Size(10, 50), // Set the width and height
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

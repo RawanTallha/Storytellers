@@ -42,17 +42,7 @@ class StoryPage extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // const Padding(
-              //   padding: EdgeInsets.symmetric(vertical: 10.0),
-              //   child: Text(
-              //     'The Great Adventure Book',
-              //     style: TextStyle(
-              //       fontSize: 24,
-              //       fontWeight: FontWeight.bold,
-              //       color: Colors.black87,
-              //     ),
-              //   ),
-              // ),
+             
               Expanded(
                 child: Center(
                   child: Container(

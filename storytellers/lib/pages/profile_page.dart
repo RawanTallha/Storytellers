@@ -129,7 +129,7 @@ class ProfilePage extends StatelessWidget {
                     'Aseel Almehmadi',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                   ),
-
+                  SizedBox(height: 10),
                   Container(
                     width: 100,
                     height: 25,
@@ -144,29 +144,88 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   // Other content here
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
 
-                  Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Color.fromARGB(104, 158, 158, 158),
-                      ),
-                      child: Padding(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Text(
-                              '24',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700, fontSize: 16),
+                        child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Color.fromARGB(104, 158, 158, 158),
                             ),
-                            Text(
-                              'المتابعين',
-                              style: TextStyle(fontSize: 14),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '12',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                    'كتب منشورة',
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Color.fromARGB(104, 158, 158, 158),
                             ),
-                          ],
-                        ),
-                      )),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '14',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                    'التصنيف',
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Color.fromARGB(104, 158, 158, 158),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '4',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                    'العمر',
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                    ],
+                  ),
 
                   SizedBox(height: 20),
                   ElevatedButton(

@@ -1,14 +1,13 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import requests
 
 app = FastAPI()
 
-# Data model for the input data
 class StoryRequest(BaseModel):
-    kid_input: str  # This is the input from the user (or child) for story generation
+    kid_input: str
 
-# Function to get the access token from IBM
 def get_access_token():
     url = 'https://iam.cloud.ibm.com/identity/token'
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -17,16 +16,13 @@ def get_access_token():
         'apikey': "1xjlDOw5lPx532eB7_xn37I9WsbVh0kx5LfNUY223Mbb"  # Replace with your actual API key
     }
     response = requests.post(url, headers=headers, data=data)
-    response.raise_for_status()  # Raises an error if the response is not 200
+    response.raise_for_status()
     return response.json()['access_token']
 
-# Endpoint to generate a story
 @app.post("/generate_story/")
 async def generate_story(request: StoryRequest):
-    # Retrieve the access token
     access_token = get_access_token()
 
-    # Define the API endpoint and headers
     url = "https://eu-de.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"
     headers = {
         "Accept": "application/json",
@@ -34,10 +30,8 @@ async def generate_story(request: StoryRequest):
         "Authorization": "Bearer " + access_token
     }
 
-    # Construct the prompt with the kid's input
     user_input = f"""أريد قصة قصيرة وجميلة تساعد الأطفال على فهم القيم السعودية والإسلامية الأصيلة. يجب أن تكون القصة بلغة بسيطة وسلسة، وأن تكون مشوقة ومليئة بالعبر المستوحاة من تعاليم الإسلام، لتناسب مستوى تفكير الأطفال وتشد انتباههم وتدخل البهجة في قلوبهم. إذا لم تكن القصة مناسبة للأطفال، يُرجى كتابة العبارة: 'لا أستطيع صنع هذه القصة.{request.kid_input}"""
 
-    # Define the request body with dynamic input and parameters
     body = {
         "input": f"""<s> [INST]<<SYS>>\n{user_input}\n<</SYS>>\n""",
         "parameters": {
@@ -53,18 +47,14 @@ async def generate_story(request: StoryRequest):
     }
 
     try:
-        # Send the request to the model API
         response = requests.post(url, headers=headers, json=body)
-        response.raise_for_status()  # Raise an error for non-200 responses
+        response.raise_for_status()
 
-        # Retrieve the generated story text
         story = response.json().get("results", [{}])[0].get("generated_text", "")
 
-        # Return the story or a message if it's empty
         if not story:
-            return {"message": "The generated story is empty."}
-        return {"story": story}
+            return JSONResponse(content={"message": "The generated story is empty."}, media_type="application/json")
+        return JSONResponse(content={"story": story}, media_type="application/json")
 
     except requests.exceptions.RequestException as e:
-        # Handle any errors that occur during the request
         raise HTTPException(status_code=500, detail=f"Error generating story: {e}")

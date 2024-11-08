@@ -9,7 +9,9 @@ class TopRankedCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return StoryPage(title: 'title');
+          return StoryPage(
+            story: '',
+          );
         }));
       },
       child: Padding(

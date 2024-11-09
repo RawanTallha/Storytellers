@@ -8,7 +8,8 @@ import 'package:storytellers/pages/home_page.dart';
 class SubscriptionPage extends StatelessWidget {
   const SubscriptionPage({super.key});
 
-  void showFeedbackDialog(BuildContext context, String message, bool isSuccess) {
+  void showFeedbackDialog(
+      BuildContext context, String message, bool isSuccess) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -71,11 +72,6 @@ class SubscriptionPage extends StatelessWidget {
                         color: Color.fromARGB(255, 22, 8, 128)),
                   ),
                   SizedBox(height: 10),
-                  Text(
-                    'ابى اكتب شي هنا',
-                    style: TextStyle(
-                        fontSize: 18, color: Color.fromARGB(255, 85, 85, 85)),
-                  ),
                   SizedBox(height: 30),
                   SubscriptionCard(
                       iconImagePath: 'lib/assets/book (3).png',
@@ -91,10 +87,10 @@ class SubscriptionPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      showFeedbackDialog(context, "Subscription successful!", true);
+                      showFeedbackDialog(context, "تمت العملية بنجاح", true);
                     },
                     child: Text(
-                      'submit',
+                      'تنفيذ',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,

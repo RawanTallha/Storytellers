@@ -16,15 +16,9 @@ class _GenerateStoryState extends State<GenerateStory> {
 
   // Function to send user input to FastAPI and retrieve generated story
   Future<void> generateStory() async {
-    // Define the FastAPI server URL
     final url = Uri.parse('http://127.0.0.1:8000/generate_story/');
+    final data = {'kid_input': userIdea};
 
-    // Prepare the data for the POST request
-    final data = {
-      'kid_input': userIdea,
-    };
-
-    // Send the POST request to the FastAPI server
     final response = await http.post(
       url,
       headers: {
@@ -35,14 +29,8 @@ class _GenerateStoryState extends State<GenerateStory> {
     );
 
     if (response.statusCode == 200) {
-      // Decode the response using UTF-8
       final responseData = jsonDecode(utf8.decode(response.bodyBytes));
       final story = responseData['story'];
-
-      // Print the decoded story in the console to confirm correct encoding
-      print("Generated Story: $story");
-
-      // Navigate to StoryPage to display the generated story
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -50,7 +38,6 @@ class _GenerateStoryState extends State<GenerateStory> {
         ),
       );
     } else {
-      // Handle error
       print("Error: ${response.statusCode}");
     }
   }
@@ -84,84 +71,128 @@ class _GenerateStoryState extends State<GenerateStory> {
                 SizedBox(height: 40),
                 Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(185, 41, 23, 101),
+                    color: const Color.fromARGB(184, 98, 78, 164),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   alignment: Alignment.center,
-                  height: 60,
-                  child: Text(
-                    'اختر مغامرتك و ابدأ قصة جديدة',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                // User input field
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 248, 246, 255),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 150,
-                  child: Padding(
-                    padding: EdgeInsets.all(20.0),
+                  height: 100,
+                  child: const Padding(
+                    padding: EdgeInsets.all(12.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          'ادخل فكرتك',
+                          'الخطوة الثالثة',
                           style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 64, 2, 138),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
                         ),
-                        SizedBox(height: 20),
-                        TextField(
-                          onChanged: (value) {
-                            setState(() {
-                              userIdea = value; // Update user input
-                            });
-                          },
-                          decoration: InputDecoration(
-                            hintText: 'مثال...',
-                            hintStyle:
-                                TextStyle(color: Colors.grey, fontSize: 14),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                color: Color.fromARGB(255, 59, 15, 155),
-                                width: 1.5,
-                              ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                color: Color.fromARGB(255, 59, 15, 155),
-                                width: 1.5,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                color: Color.fromARGB(255, 134, 117, 233),
-                                width: 1.5,
-                              ),
-                            ),
+                        Text(
+                          'ادخل فكرتك و ابحر بخيالك',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
-                          textAlign: TextAlign.right,
                         ),
                       ],
                     ),
                   ),
                 ),
                 SizedBox(height: 20),
+                // User input field with mic icon
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: 150,
+                        child: Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                'ادخل فكرتك',
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color.fromARGB(255, 64, 2, 138),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              TextField(
+                                onChanged: (value) {
+                                  setState(() {
+                                    userIdea = value;
+                                  });
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'مثال: اكتب لي قصة عن الصدق',
+                                  hintStyle: TextStyle(
+                                      color: Colors.grey, fontSize: 14),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 59, 15, 155),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 59, 15, 155),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 134, 117, 233),
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                ),
+                                textAlign: TextAlign.right,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      // Place the mic icon at the bottom right
+                      SizedBox(
+                        height: 300,
+                      ),
+                      Positioned(
+                        bottom: 20,
+                        right: 20,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 59, 15, 155),
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              // Add mic functionality here
+                            },
+                            icon: Icon(
+                              Icons.mic,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    generateStory(); // Call the function to generate story
+                    generateStory();
                   },
                   child: Text(
                     'اكتب القصة',

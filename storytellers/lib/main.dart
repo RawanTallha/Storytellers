@@ -19,8 +19,8 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //home: HomePage(),
-      //home: LogInPage(),
-      home: MyBottomNavigationBar(),
+      home: LogInPage(),
+      //home: MyBottomNavigationBar(),
       //home: WelcomePage(),
       //home: PickGenrePage(),
       //home: GenerateStory(),

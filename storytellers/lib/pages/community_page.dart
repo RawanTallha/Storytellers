@@ -93,7 +93,7 @@ class CommunityPage extends StatelessWidget {
         children: [
           // Background image
           Image.asset(
-            'lib/assets/top-ranked-wakkpaper.png', // Path to the background image
+            'lib/assets/sub-page.png', // Path to the background image
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -103,7 +103,7 @@ class CommunityPage extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 50),
+                  SizedBox(height: 70),
                   Text(
                     'معًا نحول أحلام الاطفال الى ',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
@@ -112,30 +112,243 @@ class CommunityPage extends StatelessWidget {
                     'حكايات ممتعة',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   ),
-                  SizedBox(height: 30),
-                  // Image carousel
+                  SizedBox(height: 10),
+                  Divider(
+                    thickness: 1.5, // Thickness of the line
+                    indent: 70, // Empty space to the leading edge
+                    endIndent: 70, // Empty space to the trailing edge
+                  ),
+                  SizedBox(height: 40),
+                  Container(
+                    width: 150,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(
+                      child: Text(
+                        'كتب الاسبوع',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 20),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //Image carousel
                   SizedBox(
                     height: 380,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
                         SizedBox(width: 10),
-                        TopRankedCard(),
-                        TopRankedCard(),
-                        TopRankedCard(),
+                        //TopRankedCard()
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'lib/assets/elephant.png',
+                                        fit: BoxFit.cover,
+                                        height: 300,
+                                        width: 240,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 8,
+                                      right: 8,
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 6, vertical: 4),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.8),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.star,
+                                                color: Colors.amber, size: 16),
+                                            SizedBox(width: 4),
+                                            Text(
+                                              '4.0',
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  'الفيل الصغير',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text(
+                                  'لينا محمد',
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // second top
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'lib/assets/space.png',
+                                        fit: BoxFit.cover,
+                                        height: 300,
+                                        width: 240,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 8,
+                                      right: 8,
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 6, vertical: 4),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.8),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.star,
+                                                color: Colors.amber, size: 16),
+                                            SizedBox(width: 4),
+                                            Text(
+                                              '5.0',
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  'الكون الفسيح',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text(
+                                  'عمر يوسف',
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // thried
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'lib/assets/fish.png',
+                                        fit: BoxFit.cover,
+                                        height: 300,
+                                        width: 240,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 8,
+                                      right: 8,
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 6, vertical: 4),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.8),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Icon(Icons.star,
+                                                color: Colors.amber, size: 16),
+                                            SizedBox(width: 4),
+                                            Text(
+                                              '3.0',
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  'ليلى و سمكاتها',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text(
+                                  'اسيل علي',
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
+                  SizedBox(height: 20),
                   Divider(
-                    thickness: 1.5, // Thickness of the line
-                    indent: 20, // Empty space to the leading edge
-                    endIndent: 20, // Empty space to the trailing edge
-                  ),
-                  Text(
-                    'كتاب اخرون',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    thickness: 0.5, // Thickness of the line
+                    indent: 40, // Empty space to the leading edge
+                    endIndent: 40, // Empty space to the trailing edge
                   ),
                   SizedBox(height: 20),
+
+                  Container(
+                    width: 130,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(
+                      child: Text(
+                        'كتاب اخرون',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 20),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
                   // Profile card list
                   SizedBox(
                     height: 150,
@@ -143,27 +356,27 @@ class CommunityPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       children: [
                         ProfileCard(
-                          name: 'اسيل',
+                          name: 'اسيل علي',
                           imagePath: 'lib/assets/monsters/monster (17).png',
                         ),
                         ProfileCard(
-                          name: 'لينا',
+                          name: 'لينا محمد',
                           imagePath: 'lib/assets/monsters/monster (16).png',
                         ),
                         ProfileCard(
-                          name: 'عمر',
+                          name: 'عمر يوسف',
                           imagePath: 'lib/assets/monsters/monster (15).png',
                         ),
                         ProfileCard(
-                          name: 'احمد',
+                          name: 'احمد الزهراني',
                           imagePath: 'lib/assets/monsters/monster (1).png',
                         ),
                         ProfileCard(
-                          name: 'علي',
+                          name: 'علي الغامدي',
                           imagePath: 'lib/assets/monsters/monster (6).png',
                         ),
                         ProfileCard(
-                          name: 'عبدالعزيز',
+                          name: 'عبدالعزيز عثمان',
                           imagePath: 'lib/assets/monsters/monster (5).png',
                         ),
                       ],
@@ -173,13 +386,29 @@ class CommunityPage extends StatelessWidget {
                     height: 10,
                   ),
                   Divider(
-                    thickness: 1.5, // Thickness of the line
-                    indent: 20, // Empty space to the leading edge
-                    endIndent: 20, // Empty space to the trailing edge
+                    thickness: 0.5, // Thickness of the line
+                    indent: 40, // Empty space to the leading edge
+                    endIndent: 40, // Empty space to the trailing edge
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
+
+                  Container(
+                    width: 180,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(
+                      child: Text(
+                        'كتابات قد تعجبك',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 20),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
                   SizedBox(
                     height: 200, // Set height for horizontal ListView
                     child: ListView(
@@ -189,19 +418,34 @@ class CommunityPage extends StatelessWidget {
                           width: 15,
                         ),
                         RecentStoryCard(
-                          eventImagePath: 'lib/assets/sleep.png',
-                          eventOrganizer: 'sleepy wolf',
+                          eventImagePath: 'lib/assets/fish.png',
+                          eventOrganizer: 'ليلى و سمكاتها',
                         ),
                         RecentStoryCard(
-                          eventImagePath: 'lib/assets/birdwatching.png',
-                          eventOrganizer: 'some kid watching',
+                          eventImagePath: 'lib/assets/elephant.png',
+                          eventOrganizer: 'الفيل الصغير',
                         ),
                         RecentStoryCard(
-                          eventImagePath: 'lib/assets/simpathy.jpg',
-                          eventOrganizer: 'some kid watching',
+                          eventImagePath: 'lib/assets/space.png',
+                          eventOrganizer: 'الكون الفسيح',
+                        ),
+                        RecentStoryCard(
+                          eventImagePath: 'lib/assets/moon.png',
+                          eventOrganizer: 'نجمه',
+                        ),
+                        RecentStoryCard(
+                          eventImagePath: 'lib/assets/leafs.png',
+                          eventOrganizer: 'الصداقة',
+                        ),
+                        RecentStoryCard(
+                          eventImagePath: 'lib/assets/sheep.png',
+                          eventOrganizer: 'مايا و الخرفان',
                         ),
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                 ],
               ),
@@ -244,7 +488,7 @@ class ProfileCard extends StatelessWidget {
           ),
           Text(
             name,
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 14),
           ),
         ],
       ),

@@ -57,12 +57,7 @@ class CommunityCard extends StatelessWidget {
                   ),
                   //button
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return HomePage(); // Ensure this matches the constructor of your HomePage
-                      }));
-                    },
+                    onPressed: () {},
                     child: Text(
                       'أستكشف القصة',
                       style: TextStyle(

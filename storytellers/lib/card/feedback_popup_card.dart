@@ -33,7 +33,7 @@ class FeedbackPopup extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              isSuccess ? 'Success' : 'Error',
+              isSuccess ? 'عملية ناجحة' : 'عملية غير ناجحة',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -55,7 +55,7 @@ class FeedbackPopup extends StatelessWidget {
                 ),
               ),
               child: Text(
-                isSuccess ? 'Continue' : 'Try again',
+                isSuccess ? 'تابع' : 'حاول مره اخرى',
                 style:
                     TextStyle(color: Colors.black), // Set text color to black
               ),

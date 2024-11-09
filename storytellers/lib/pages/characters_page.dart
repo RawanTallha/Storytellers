@@ -36,20 +36,35 @@ class _CharPageState extends State<CharPage> {
               height: 100,
             ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(20.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(185, 41, 23, 101),
+                  color: const Color.fromARGB(184, 98, 78, 164),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 alignment: Alignment.center,
-                height: 60,
-                child: Text(
-                  'اختر ابطالك و ابدأ قصة جديدة',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                height: 100,
+                child: const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'الخطوة الثانية',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'اختر ابطال قصتك',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -62,35 +77,28 @@ class _CharPageState extends State<CharPage> {
                 mainAxisSpacing: 10.0,
                 children: [
                   CharacterCard(
-                      characterName: 'Prince',
+                      characterName: 'امير',
                       charcterImagePath: 'lib/assets/character/prince.png'),
                   CharacterCard(
-                      characterName: 'Prince',
-                      charcterImagePath: 'lib/assets/character/prince.png'),
-                  CharacterCard(
-                      characterName: 'Princess',
+                      characterName: 'اميرة',
                       charcterImagePath:
                           'lib/assets/character/princess-yellow.png'),
                   CharacterCard(
-                      characterName: 'Princess',
+                      characterName: 'اميرة',
                       charcterImagePath: 'lib/assets/character/princess.png'),
                   CharacterCard(
-                      characterName: 'Princess',
+                      characterName: 'اميرة',
                       charcterImagePath:
                           'lib/assets/character/stupid-apple.png'),
                   CharacterCard(
-                      characterName: 'TinkerBell',
-                      charcterImagePath:
-                          'lib/assets/character/tinker-bell.png'),
-                  CharacterCard(
-                      characterName: 'Pirate',
+                      characterName: 'قرصان',
                       charcterImagePath: 'lib/assets/character/pirate.png'),
                   CharacterCard(
-                      characterName: 'Princess',
+                      characterName: 'اميرة',
                       charcterImagePath:
                           'lib/assets/character/princess-hair.png'),
                   CharacterCard(
-                      characterName: 'Princess?',
+                      characterName: 'اميرة',
                       charcterImagePath: 'lib/assets/character/red-hood.png'),
                 ],
               ),

@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Text(
-                              'كاتبنا الصغير: لالا',
+                              'كاتبنا الصغير: جسار',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 24,
@@ -176,85 +176,11 @@ class _HomePageState extends State<HomePage> {
 
                   SizedBox(height: 40),
 
-                  //Card with catch phrase
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Card(
-                      color: Color.fromARGB(
-                          0, 188, 20, 20), // Make card background transparent
-                      elevation: 0,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 40),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(185, 41, 23, 101),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.asset(
-                              'lib/assets/write.png',
-                              height: 80,
-                            ),
-
-                            // Catch phrase
-                            Text(
-                              'قصتك… حكاية بلمستك',
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: const Color.fromARGB(198, 255, 255,
-                                    255), // Adjust color as needed
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(height: 20),
-
-                  // generate your story list section
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return StoryPage(
-                                story: '',
-                              );
-                            }));
-                          },
-                          child: Text(
-                            '',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        Text(
-                          'اختر مغامرتك',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(height: 25),
-
                   // Horizontal ListView for genres
                   Column(
                     children: [
                       GenreCard(
-                        serviceName: 'قصة حوارية',
+                        serviceName: 'قصتك حكاية بلمستك',
                         iconImagePath: 'lib/assets/book.png',
                         pageTitle: '',
                       ),
@@ -328,17 +254,9 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return CommunityPage();
-                            }));
-                          },
-                          child: Text(
-                            'المزيد',
-                            style: TextStyle(color: Colors.white),
-                          ),
+                        Text(
+                          'المزيد',
+                          style: TextStyle(color: Colors.white),
                         ),
                         Text(
                           'مجتمع الكتاب الصغار',
@@ -362,8 +280,12 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           CommunityCard(
                               authorsName: 'محمد الغامدي ',
-                              storyTitle: 'الذئب الصغير',
-                              storyImagePath: 'lib/assets/sleep.png'),
+                              storyTitle: 'ليلى و سمكاتها',
+                              storyImagePath: 'lib/assets/fish.png'),
+                          CommunityCard(
+                              authorsName: 'لين محمد',
+                              storyTitle: 'الفيل الصغير',
+                              storyImagePath: 'lib/assets/elephant.png'),
                         ],
                       ),
                     ),

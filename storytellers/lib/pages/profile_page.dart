@@ -126,7 +126,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    'Aseel Almehmadi',
+                    'جسار المحمادي',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                   ),
                   SizedBox(height: 10),
@@ -138,7 +138,7 @@ class ProfilePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20)),
                     child: Center(
                       child: Text(
-                        'كاتب مبتدئ',
+                        'كاتب متقدم',
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -161,7 +161,7 @@ class ProfilePage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text(
-                                    '12',
+                                    '2',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 16),
@@ -211,7 +211,7 @@ class ProfilePage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text(
-                                    '4',
+                                    '10',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 16),
@@ -228,46 +228,14 @@ class ProfilePage extends StatelessWidget {
                   ),
 
                   SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return ProfilePage(); // Ensure this matches the constructor of your HomePage
-                      }));
-                    },
-                    child: Text(
-                      'edit profile',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary:
-                          Color.fromARGB(236, 252, 184, 83), // Background color
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 12), // Button padding
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  // Events section
+
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return RecentStoryPage();
-                            }));
-                          },
-                          child: Text(
-                            'المزيد',
-                          ),
+                        Text(
+                          'المزيد',
                         ),
                         Text(
                           'القصص المنشورة',
@@ -293,15 +261,11 @@ class ProfilePage extends StatelessWidget {
                         ),
                         RecentStoryCard(
                           eventImagePath: 'lib/assets/sleep.png',
-                          eventOrganizer: 'sleepy wolf',
+                          eventOrganizer: 'الذئب النائم',
                         ),
                         RecentStoryCard(
                           eventImagePath: 'lib/assets/birdwatching.png',
-                          eventOrganizer: 'some kid watching',
-                        ),
-                        RecentStoryCard(
-                          eventImagePath: 'lib/assets/simpathy.jpg',
-                          eventOrganizer: 'some kid watching',
+                          eventOrganizer: 'عالم الطيور',
                         ),
                       ],
                     ),

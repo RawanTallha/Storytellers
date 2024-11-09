@@ -28,39 +28,40 @@ class GenreCard extends StatelessWidget {
           horizontal: 20, vertical: 0), // space between each card
       child: Card(
         child: Container(
-          padding: EdgeInsets.all(20),
-          height: 240,
+          padding: EdgeInsets.all(5),
+          height: 280,
           width: 500,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            color: Color.fromARGB(99, 255, 255, 255),
+            color: Color.fromARGB(97, 241, 237, 237),
           ),
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
+                  Image.asset(
+                    iconImagePath,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
+
+                  SizedBox(
+                    width: 20,
+                  ),
+
                   Text(
                     serviceName,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
+                      color: Color.fromARGB(255, 60, 15, 127),
                     ),
                   ),
                   SizedBox(
-                    height: 8,
+                    height: 30,
                   ),
-                  Text(
-                    'اكتب قصه كتكوته لطفلك الكتكوت',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w100,
-                      fontSize: 14,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
+
                   //button
                   ElevatedButton(
                     onPressed: () {
@@ -70,7 +71,7 @@ class GenreCard extends StatelessWidget {
                       }));
                     },
                     child: Text(
-                      'اكتب قصتك',
+                      'يلا نبدأ الحكاية',
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -80,14 +81,6 @@ class GenreCard extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Image.asset(
-                iconImagePath,
-                height: 104,
-                fit: BoxFit.cover,
               ),
             ],
           ),
